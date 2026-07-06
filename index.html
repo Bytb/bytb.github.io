@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta
       name="description"
-      content="Caleb Fernandes personal website - projects, writing, profile, and contact."
+      content="Caleb Fernandes personal website - computer science, economics, graph machine learning, spatial research, publications, awards, projects, and contact."
     >
     <title>calebfernandes</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,8 +25,10 @@
 
       <nav class="nav" aria-label="Primary navigation">
         <a href="#profile">Profile</a>
-        <a href="#work">Work</a>
-        <a href="#notes">Notes</a>
+        <a href="#research">Research/Publications</a>
+        <a href="#projects">Projects</a>
+        <a href="#awards">Awards</a>
+        <a href="#hobbies">Hobbies</a>
         <a href="#contact">Contact</a>
       </nav>
     </header>
@@ -41,14 +43,23 @@
         <div class="hero-shade" aria-hidden="true"></div>
         <div class="hero-content reveal">
           <p class="eyebrow">Personal website</p>
-          <h1 id="hero-title">Caleb Fernandes</h1>
+          <div class="hero-title-group">
+            <h1 id="hero-title">Caleb Fernandes</h1>
+            <div class="hero-page-buttons" aria-label="Featured sections">
+              <a href="#research">Research/Publications</a>
+              <a href="#projects">Projects</a>
+              <a href="#awards">Awards</a>
+              <a href="#hobbies">Hobbies</a>
+            </div>
+          </div>
           <p class="hero-copy">
-            A focused home for projects, experiments, writing, and the work in
-            progress between an idea and a finished thing.
+            Computer science and quantitative economics student researching
+            graph machine learning, spatial systems, synthetic data, and applied
+            infrastructure questions.
           </p>
           <div class="hero-actions">
-            <a class="button primary" href="#work">View work</a>
-            <a class="button secondary" href="mailto:hello@calebfernandes.com">Get in touch</a>
+            <a class="button primary" href="#projects">View projects</a>
+            <a class="button secondary" href="mailto:calebfernandes3@gmail.com">Get in touch</a>
           </div>
         </div>
       </section>
@@ -57,83 +68,193 @@
         <div class="section-inner two-column">
           <div class="section-heading reveal">
             <p class="eyebrow">Profile</p>
-            <h2 id="profile-title">Builder, systems thinker, and careful finisher.</h2>
+            <h2 id="profile-title">Researcher at the intersection of code, data, and applied economics.</h2>
           </div>
           <div class="copy-stack reveal">
             <p>
-              This site is ready to become a sharper public profile: the place
-              for background, current focus, favorite projects, writing, and
-              contact paths.
+              I am pursuing a B.S. in Computer Science and a B.S. in Econometrics
+              and Quantitative Economics at the University of South Florida's
+              Genshaft Honors College, with a minor in Geographic Information
+              Systems and a 4.0 GPA.
             </p>
             <p>
-              Replace this scaffold copy with a short bio, a few proof points,
-              and the kind of work Caleb wants people to remember.
+              My work spans graph machine learning, spatial analysis, synthetic
+              data generation, economic modeling, and financial technology. I
+              have built software in Python, C++, R, C, C#, VBA, ReactJS, and
+              tools including PyTorch/PyG, Pandas, Git, ArcGIS Pro, Terra, and
+              ggplot2.
             </p>
           </div>
         </div>
       </section>
 
-      <section class="section" id="work" aria-labelledby="work-title">
+      <section class="section research-section" id="research" aria-labelledby="research-title">
         <div class="section-inner">
           <div class="section-heading compact reveal">
-            <p class="eyebrow">Selected work</p>
-            <h2 id="work-title">Projects to shape next.</h2>
+            <p class="eyebrow">Research/Publications</p>
+            <h2 id="research-title">Graph learning, spatial infrastructure, and applied data science.</h2>
+          </div>
+
+          <div class="feature-list reveal">
+            <article class="feature-row">
+              <span>CSAIL</span>
+              <div>
+                <h3>Connected Social Artificial Intelligence Lab</h3>
+                <p>
+                  Leading undergraduate work on Florida Blue Digital Twins,
+                  using LLMs and graph methods for synthetic generation of
+                  electronic health records. Developed EHR-Walk, a random walk
+                  algorithm for synthetic data on heterogeneous EHR graphs.
+                </p>
+              </div>
+            </article>
+
+            <article class="feature-row">
+              <span>Spatial Lab</span>
+              <div>
+                <h3>EV charging infrastructure disparity</h3>
+                <p>
+                  Working with Dr. Ran Tao's Spatial and Transportation Lab on
+                  machine learning and spatial analysis for public EV charging
+                  infrastructure growth and accessibility across the United States.
+                </p>
+              </div>
+            </article>
+
+            <article class="feature-row">
+              <span>REU</span>
+              <div>
+                <h3>ReCYCLE Net</h3>
+                <p>
+                  NSF REU research at James Madison University on cycle-aware
+                  graph neural networks for community detection, under Dr.
+                  Behnaz Moradi-Jamei.
+                </p>
+              </div>
+            </article>
+
+            <article class="feature-row">
+              <span>Thesis</span>
+              <div>
+                <h3>Nuclear power plants and local education</h3>
+                <p>
+                  Honors thesis applying reduced-form economic techniques to
+                  study whether increased taxation of nuclear power plants
+                  produces local educational benefits across more than 20 states.
+                </p>
+              </div>
+            </article>
+
+            <article class="feature-row">
+              <span>Publications</span>
+              <div>
+                <h3>Selected publications and manuscripts</h3>
+                <p>
+                  ReCycle Net accepted to the GRaM Workshop at ICLR 2026;
+                  Evaluating spatial disparities in public EV charging
+                  infrastructure published in Journal of Transport Geography;
+                  additional manuscripts on EV infrastructure growth and graph
+                  transfer learning are in preparation or submitted.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="projects" aria-labelledby="projects-title">
+        <div class="section-inner">
+          <div class="section-heading compact reveal">
+            <p class="eyebrow">Projects</p>
+            <h2 id="projects-title">Selected technical work.</h2>
           </div>
 
           <div class="project-grid">
             <article class="project-card reveal">
               <span class="project-index">01</span>
-              <h3>Signature Project</h3>
+              <h3>EHR-Walk</h3>
               <p>
-                A short case-study slot for the strongest project, with space
-                for outcomes, stack, links, and a crisp one-sentence hook.
+                Random walk algorithm for generating synthetic data over a
+                heterogeneous graph derived from electronic health records.
               </p>
-              <a href="#contact" aria-label="Discuss Signature Project">Discuss project</a>
+              <a href="#research" aria-label="View EHR-Walk research context">View research</a>
             </article>
 
             <article class="project-card reveal">
               <span class="project-index">02</span>
-              <h3>Experiment Log</h3>
+              <h3>ReCYCLE Net</h3>
               <p>
-                A place for prototypes, learning notes, tools, and technical
-                explorations that show taste and momentum.
+                Cycle-aware graph neural network architecture for community
+                detection on cyclic-rich graphs.
               </p>
-              <a href="#notes" aria-label="Read Experiment Log">Read notes</a>
+              <a href="#research" aria-label="View ReCYCLE Net research context">View research</a>
             </article>
 
             <article class="project-card reveal">
               <span class="project-index">03</span>
-              <h3>Open Source</h3>
+              <h3>Excel Reporting Library</h3>
               <p>
-                A slot for GitHub work, contributions, utilities, or anything
-                useful enough to share beyond the site.
+                C# and VBA libraries built with ClosedXML and OpenXML to replace
+                SyncFusion usage in Excel automation, saving over $20,000 per year.
               </p>
-              <a href="https://github.com/calebfernandes" rel="noreferrer">Visit GitHub</a>
+              <a href="#contact" aria-label="Ask about the Excel reporting library">Ask about it</a>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="section notes-band" id="notes" aria-labelledby="notes-title">
-        <div class="section-inner notes-layout">
+      <section class="section awards-band" id="awards" aria-labelledby="awards-title">
+        <div class="section-inner split-layout">
           <div class="section-heading reveal">
-            <p class="eyebrow">Notes</p>
-            <h2 id="notes-title">Thinking out loud, soon.</h2>
+            <p class="eyebrow">Awards</p>
+            <h2 id="awards-title">Recognition and academic milestones.</h2>
           </div>
 
           <div class="note-list reveal">
             <a class="note-link" href="#contact">
-              <span>Current focus</span>
-              <strong>What I am building and learning right now</strong>
+              <span>2026</span>
+              <strong>Barry Goldwater Scholar</strong>
             </a>
             <a class="note-link" href="#contact">
-              <span>Field notes</span>
-              <strong>Small observations from projects and experiments</strong>
+              <span>2025</span>
+              <strong>GCURS Award in Economics at Rice University</strong>
             </a>
             <a class="note-link" href="#contact">
-              <span>Reading list</span>
-              <strong>Ideas worth saving and revisiting</strong>
+              <span>2025</span>
+              <strong>Inducted into Sigma Xi Scientific Research Honors Society</strong>
             </a>
+            <a class="note-link" href="#contact">
+              <span>2023</span>
+              <strong>Genspiration Global Explorers Scholarship and Presidential Green and Gold Scholarship</strong>
+            </a>
+            <a class="note-link" href="#contact">
+              <span>Ongoing</span>
+              <strong>Dean's List, University of South Florida</strong>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section hobbies-section" id="hobbies" aria-labelledby="hobbies-title">
+        <div class="section-inner">
+          <div class="section-heading compact reveal">
+            <p class="eyebrow">Hobbies</p>
+            <h2 id="hobbies-title">Activities and communities.</h2>
+          </div>
+
+          <div class="hobby-grid">
+            <article class="hobby-item reveal">
+              <h3>Mathematical finance</h3>
+              <p>President of the Mathematical Finance Division of the Private Equity Club.</p>
+            </article>
+            <article class="hobby-item reveal">
+              <h3>Scholarship outreach</h3>
+              <p>Founding Ambassador for the Office of National Scholars at USF.</p>
+            </article>
+            <article class="hobby-item reveal">
+              <h3>Engineering community</h3>
+              <p>Former Outer Guard for Theta Tau Professional Co-ed Engineering Fraternity.</p>
+            </article>
           </div>
         </div>
       </section>
@@ -142,16 +263,17 @@
         <div class="section-inner contact-panel reveal">
           <div>
             <p class="eyebrow">Contact</p>
-            <h2 id="contact-title">Make the next version specific.</h2>
+            <h2 id="contact-title">Get in touch.</h2>
           </div>
           <p>
-            Add preferred email, social links, resume, and any context that
-            helps the right people reach the right inbox.
+            Reach out for research collaboration, publications, internships,
+            technical projects, or conversations around graph learning, spatial
+            data science, economics, and financial technology.
           </p>
           <div class="contact-links" aria-label="Contact links">
-            <a href="mailto:hello@calebfernandes.com">Email</a>
-            <a href="https://github.com/calebfernandes" rel="noreferrer">GitHub</a>
-            <a href="https://www.linkedin.com/" rel="noreferrer">LinkedIn</a>
+            <a href="mailto:calebfernandes3@gmail.com">Email</a>
+            <a href="https://www.linkedin.com/in/caleb-fernandes" rel="noreferrer">LinkedIn</a>
+            <a href="https://orcid.org/0009-0005-5493-0873" rel="noreferrer">ORCID</a>
           </div>
         </div>
       </section>
