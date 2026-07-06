@@ -26,6 +26,7 @@
       <nav class="nav" aria-label="Primary navigation">
         <a href="#profile">Profile</a>
         <a href="#research">Research/Publications</a>
+        <a href="#work">Work Experience</a>
         <a href="#projects">Projects</a>
         <a href="#awards">Awards</a>
         <a href="#hobbies">Hobbies</a>
@@ -47,15 +48,17 @@
             <h1 id="hero-title">Caleb Fernandes</h1>
             <div class="hero-page-buttons" aria-label="Featured sections">
               <a href="#research">Research/Publications</a>
+              <a href="#work">Work Experience</a>
               <a href="#projects">Projects</a>
               <a href="#awards">Awards</a>
               <a href="#hobbies">Hobbies</a>
             </div>
           </div>
           <p class="hero-copy">
-            Computer science and quantitative economics student researching
-            graph machine learning, spatial systems, synthetic data, and applied
-            infrastructure questions.
+            Skilled in <span class="text-gold">Computer Science</span> and
+            <span class="text-gold">Quantitative Economics</span> with a passion
+            for graph machine learning, data science, and finance. Also a
+            recognized <span class="text-gold">jazz saxophonist</span> and cook.
           </p>
           <div class="hero-actions">
             <a class="button primary" href="#projects">View projects</a>
@@ -65,17 +68,18 @@
       </section>
 
       <section class="section intro-band" id="profile" aria-labelledby="profile-title">
-        <div class="section-inner two-column">
-          <div class="section-heading reveal">
+        <div class="section-inner profile-layout">
+          <div class="section-heading profile-heading reveal">
             <p class="eyebrow">Profile</p>
-            <h2 id="profile-title">Researcher at the intersection of code, data, and applied economics.</h2>
+            <h2 id="profile-title">Profile</h2>
           </div>
           <div class="copy-stack reveal">
             <p>
-              I am pursuing a B.S. in Computer Science and a B.S. in Econometrics
-              and Quantitative Economics at the University of South Florida's
-              Genshaft Honors College, with a minor in Geographic Information
-              Systems and a 4.0 GPA.
+              I am pursuing a B.S. in Computer Science
+              and a B.S. in Econometrics and
+              Quantitative Economics at the
+              University of South Florida's Genshaft Honors College, with a minor
+              in Geographic Information Systems and a 4.0 GPA.
             </p>
             <p>
               My work spans graph machine learning, spatial analysis, synthetic
@@ -85,78 +89,236 @@
               ggplot2.
             </p>
           </div>
+          <div class="profile-media reveal">
+            <div class="profile-carousel" aria-label="Profile image carousel">
+              <div class="carousel-track">
+                <figure class="carousel-slide slide-research">
+                  <span>Research</span>
+                </figure>
+                <figure class="carousel-slide slide-code">
+                  <span>Code</span>
+                </figure>
+                <figure class="carousel-slide slide-music">
+                  <span>Jazz</span>
+                </figure>
+                <figure class="carousel-slide slide-campus">
+                  <span>USF</span>
+                </figure>
+                <figure class="carousel-slide slide-research" aria-hidden="true">
+                  <span>Research</span>
+                </figure>
+                <figure class="carousel-slide slide-code" aria-hidden="true">
+                  <span>Code</span>
+                </figure>
+                <figure class="carousel-slide slide-music" aria-hidden="true">
+                  <span>Jazz</span>
+                </figure>
+                <figure class="carousel-slide slide-campus" aria-hidden="true">
+                  <span>USF</span>
+                </figure>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       <section class="section research-section" id="research" aria-labelledby="research-title">
         <div class="section-inner">
-          <div class="section-heading compact reveal">
+          <div class="section-heading research-heading reveal">
             <p class="eyebrow">Research/Publications</p>
-            <h2 id="research-title">Graph learning, spatial infrastructure, and applied data science.</h2>
+            <h2 id="research-title">Machine Learning, Data Science, and Economics</h2>
           </div>
 
-          <div class="feature-list reveal">
-            <article class="feature-row">
-              <span>CSAIL</span>
-              <div>
-                <h3>Connected Social Artificial Intelligence Lab</h3>
-                <p>
-                  Leading undergraduate work on Florida Blue Digital Twins,
-                  using LLMs and graph methods for synthetic generation of
-                  electronic health records. Developed EHR-Walk, a random walk
-                  algorithm for synthetic data on heterogeneous EHR graphs.
-                </p>
+          <div class="research-tabs reveal">
+            <input class="tab-radio" type="radio" name="research-tabs" id="research-tab" checked>
+            <input class="tab-radio" type="radio" name="research-tabs" id="papers-tab">
+            <input class="tab-radio" type="radio" name="research-tabs" id="conferences-tab">
+            <div class="tab-list" role="tablist" aria-label="Research categories">
+              <label class="tab-button" for="research-tab" role="tab">Research</label>
+              <label class="tab-button" for="papers-tab" role="tab">Papers</label>
+              <label class="tab-button" for="conferences-tab" role="tab">Conferences</label>
+            </div>
+
+            <div class="tab-panel" id="research-panel" role="tabpanel" aria-labelledby="research-tab">
+              <article class="feature-row">
+                <span>CSAIL</span>
+                <div>
+                  <h3>Connected Social Artificial Intelligence Lab</h3>
+                  <p>
+                    Leading undergraduate work on Florida Blue Digital Twins,
+                    using LLMs and graph methods for synthetic generation of
+                    electronic health records. Developed EHR-Walk, a random walk
+                    algorithm for synthetic data on heterogeneous EHR graphs.
+                  </p>
+                </div>
+              </article>
+
+              <article class="feature-row">
+                <span>Spatial Lab</span>
+                <div>
+                  <h3>EV charging infrastructure disparity</h3>
+                  <p>
+                    Working with Dr. Ran Tao's Spatial and Transportation Lab on
+                    machine learning and spatial analysis for public EV charging
+                    infrastructure growth and accessibility across the United States.
+                  </p>
+                </div>
+              </article>
+
+              <article class="feature-row">
+                <span>REU</span>
+                <div>
+                  <h3>ReCYCLE Net</h3>
+                  <p>
+                    NSF REU research at James Madison University on cycle-aware
+                    graph neural networks for community detection, under Dr.
+                    Behnaz Moradi-Jamei.
+                  </p>
+                </div>
+              </article>
+
+              <article class="feature-row">
+                <span>Thesis</span>
+                <div>
+                  <h3>Nuclear power plants and local education</h3>
+                  <p>
+                    Honors thesis applying reduced-form economic techniques to
+                    study whether increased taxation of nuclear power plants
+                    produces local educational benefits across more than 20 states.
+                  </p>
+                </div>
+              </article>
+            </div>
+
+            <div class="tab-panel" id="papers-panel" role="tabpanel" aria-labelledby="papers-tab">
+              <article class="feature-row">
+                <span>Accepted</span>
+                <div>
+                  <h3>ReCycle Net: Cycle-Aware, Feature-Free GNN for Community Detection</h3>
+                  <p>
+                    Caleb Fernandes and Behnaz Moradi-Jamei. Accepted to the
+                    GRaM Workshop at ICLR 2026.
+                  </p>
+                </div>
+              </article>
+
+              <article class="feature-row">
+                <span>Published</span>
+                <div>
+                  <h3>Evaluating spatial disparities in public EV charging infrastructure across the United States</h3>
+                  <p>
+                    T. M. Junaid Bashar, Ran Tao, Caleb Fernandes, and Zhenzhi
+                    Jiao. Journal of Transport Geography, vol. 130, article
+                    104507.
+                  </p>
+                </div>
+              </article>
+
+              <article class="feature-row">
+                <span>Submitted</span>
+                <div>
+                  <h3>Struct-G: Structural-Aware Pretraining for Robust Graph Transfer Learning</h3>
+                  <p>
+                    Alec Braynen, Abel Le, Caleb Fernandes, and Seungbae Kim.
+                    Submitted to ICLR 2026.
+                  </p>
+                </div>
+              </article>
+
+              <article class="feature-row">
+                <span>Prep</span>
+                <div>
+                  <h3>Predicting Growing Disparity in Electric Charging Station Infrastructure Growth in America</h3>
+                  <p>
+                    Caleb Fernandes, T. M. Junaid Bashar, Ran Tao, and Zhenzhi
+                    Jiao. Manuscript in preparation.
+                  </p>
+                </div>
+              </article>
+            </div>
+
+            <div class="tab-panel" id="conferences-panel" role="tabpanel" aria-labelledby="conferences-tab">
+              <article class="feature-row">
+                <span>ICLR 2026</span>
+                <div>
+                  <h3>ReCYCLE Net: Beyond GNNs for large-scale community detection</h3>
+                  <p>
+                    Poster presentation at the GRaM Workshop, International
+                    Conference on Learning Representations, Rio de Janeiro.
+                  </p>
+                </div>
+              </article>
+
+              <article class="feature-row">
+                <span>JMM 2026</span>
+                <div>
+                  <h3>ReCYCLE Net undergraduate poster presentation</h3>
+                  <p>
+                    Poster presentation at the AMS-PME Undergraduate Student
+                    Poster Session, Joint Mathematics Meetings, Washington, DC.
+                  </p>
+                </div>
+              </article>
+
+              <article class="feature-row">
+                <span>GCURS 2025</span>
+                <div>
+                  <h3>Spatial disparities in public EV charging infrastructure</h3>
+                  <p>
+                    Oral presentation at the Gulf Coast Undergraduate Research
+                    Symposium, Rice University.
+                  </p>
+                </div>
+              </article>
+
+              <article class="feature-row">
+                <span>FURC 2025</span>
+                <div>
+                  <h3>Unreal Engine 5 for synthetic dataset creation</h3>
+                  <p>
+                    Poster presentation at the Florida Undergraduate Research
+                    Symposium, University of South Florida.
+                  </p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section work-section" id="work" aria-labelledby="work-title">
+        <div class="section-inner">
+          <div class="section-heading work-heading reveal">
+            <p class="eyebrow">Work Experience</p>
+            <h2 id="work-title">Applied software, finance, and automation.</h2>
+          </div>
+
+          <div class="work-grid">
+            <article class="work-card reveal">
+              <div class="work-meta">
+                <span>June 2026 - August 2026</span>
+                <span>Boston, MA</span>
               </div>
+              <h3>Technology Intern</h3>
+              <p class="work-company">Wellington Management</p>
+              <p>
+                Upcoming technology internship focused on financial technology
+                products for clients at a global investment management firm.
+              </p>
             </article>
 
-            <article class="feature-row">
-              <span>Spatial Lab</span>
-              <div>
-                <h3>EV charging infrastructure disparity</h3>
-                <p>
-                  Working with Dr. Ran Tao's Spatial and Transportation Lab on
-                  machine learning and spatial analysis for public EV charging
-                  infrastructure growth and accessibility across the United States.
-                </p>
+            <article class="work-card reveal">
+              <div class="work-meta">
+                <span>May 2024 - August 2024</span>
+                <span>Malvern, PA</span>
               </div>
-            </article>
-
-            <article class="feature-row">
-              <span>REU</span>
-              <div>
-                <h3>ReCYCLE Net</h3>
-                <p>
-                  NSF REU research at James Madison University on cycle-aware
-                  graph neural networks for community detection, under Dr.
-                  Behnaz Moradi-Jamei.
-                </p>
-              </div>
-            </article>
-
-            <article class="feature-row">
-              <span>Thesis</span>
-              <div>
-                <h3>Nuclear power plants and local education</h3>
-                <p>
-                  Honors thesis applying reduced-form economic techniques to
-                  study whether increased taxation of nuclear power plants
-                  produces local educational benefits across more than 20 states.
-                </p>
-              </div>
-            </article>
-
-            <article class="feature-row">
-              <span>Publications</span>
-              <div>
-                <h3>Selected publications and manuscripts</h3>
-                <p>
-                  ReCycle Net accepted to the GRaM Workshop at ICLR 2026;
-                  Evaluating spatial disparities in public EV charging
-                  infrastructure published in Journal of Transport Geography;
-                  additional manuscripts on EV infrastructure growth and graph
-                  transfer learning are in preparation or submitted.
-                </p>
-              </div>
+              <h3>Software Developer Intern</h3>
+              <p class="work-company">Gravic Inc.</p>
+              <p>
+                Built C# and VBA libraries with ClosedXML and OpenXML to generate
+                Excel reports and replace SyncFusion usage, saving more than
+                <span class="text-gold">$20,000 per year</span>.
+              </p>
             </article>
           </div>
         </div>
@@ -204,32 +366,86 @@
       </section>
 
       <section class="section awards-band" id="awards" aria-labelledby="awards-title">
-        <div class="section-inner split-layout">
-          <div class="section-heading reveal">
+        <div class="section-inner recognition-layout">
+          <div class="section-heading recognition-heading reveal">
             <p class="eyebrow">Awards</p>
-            <h2 id="awards-title">Recognition and academic milestones.</h2>
+            <h2 id="awards-title">Recognition</h2>
           </div>
 
-          <div class="note-list reveal">
+          <div class="note-list recognition-timeline reveal">
             <a class="note-link" href="#contact">
               <span>2026</span>
-              <strong>Barry Goldwater Scholar</strong>
+              <div class="award-copy">
+                <strong>International Conference for Learning Representations</strong>
+                <p>
+                  First-authored ReCYCLE Net, accepted as a poster for the GRaM
+                  Workshop at ICLR 2026, one of the
+                  <span class="text-gold">world's most prestigious</span>
+                  machine learning venues.
+                </p>
+              </div>
+            </a>
+            <a class="note-link" href="#contact">
+              <span>2026</span>
+              <div class="award-copy">
+                <strong>Barry Goldwater Scholar</strong>
+                <p>
+                  The <span class="text-gold">nation's most prestigious</span>
+                  undergraduate scholarship for students pursuing research
+                  careers in STEM.
+                </p>
+              </div>
             </a>
             <a class="note-link" href="#contact">
               <span>2025</span>
-              <strong>GCURS Award in Economics at Rice University</strong>
+              <div class="award-copy">
+                <strong>GCURS Award in Economics at Rice University</strong>
+                <p>
+                  Received <span class="text-gold">best presentation in economics</span>
+                  recognition for work on spatial disparities in public EV
+                  charging infrastructure.
+                </p>
+              </div>
             </a>
             <a class="note-link" href="#contact">
               <span>2025</span>
-              <strong>Inducted into Sigma Xi Scientific Research Honors Society</strong>
+              <div class="award-copy">
+                <strong>Inducted into Sigma Xi Scientific Research Honors Society</strong>
+                <p>
+                  Joined a <span class="text-gold">national research honor society</span>
+                  dedicated to promoting excellence in scientific investigation.
+                </p>
+              </div>
             </a>
             <a class="note-link" href="#contact">
               <span>2023</span>
-              <strong>Genspiration Global Explorers Scholarship and Presidential Green and Gold Scholarship</strong>
+              <div class="award-copy">
+                <strong>Genspiration Global Explorers Scholarship</strong>
+                <p>
+                  Awarded <span class="text-gold">$10,000 in travel funding</span>
+                  for an approved academic travel experience supporting work at USF.
+                </p>
+              </div>
             </a>
             <a class="note-link" href="#contact">
               <span>Ongoing</span>
-              <strong>Dean's List, University of South Florida</strong>
+              <div class="award-copy">
+                <strong>Dean's List, University of South Florida</strong>
+                <p>
+                  Recognized for sustained academic performance with semester
+                  GPA <span class="text-gold">above 3.9</span>.
+                </p>
+              </div>
+            </a>
+            <a class="note-link" href="#contact">
+              <span>2021</span>
+              <div class="award-copy">
+                <strong>PMEA All-State Jazz Saxophonist</strong>
+                <p>
+                  Performed with the PMEA All-State Jazz Band as the
+                  <span class="text-gold">2nd best jazz saxophonist in Pennsylvania</span>.
+                </p>
+              </div>
             </a>
           </div>
         </div>
