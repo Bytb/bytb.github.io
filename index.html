@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Caleb Fernandes personal website - projects, writing, profile, and contact."
+    >
+    <title>calebfernandes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <a class="brand" href="#top" aria-label="calebfernandes home">
+        <span class="brand-mark">CF</span>
+        <span>calebfernandes</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#profile">Profile</a>
+        <a href="#work">Work</a>
+        <a href="#notes">Notes</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <img
+          class="hero-image"
+          src="assets/calebfernandes-hero.png"
+          alt="Abstract digital workspace with code panels, warm sunlight, desk objects, and a plant."
+        >
+        <div class="hero-shade" aria-hidden="true"></div>
+        <div class="hero-content reveal">
+          <p class="eyebrow">Personal website</p>
+          <h1 id="hero-title">Caleb Fernandes</h1>
+          <p class="hero-copy">
+            A focused home for projects, experiments, writing, and the work in
+            progress between an idea and a finished thing.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#work">View work</a>
+            <a class="button secondary" href="mailto:hello@calebfernandes.com">Get in touch</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section intro-band" id="profile" aria-labelledby="profile-title">
+        <div class="section-inner two-column">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Profile</p>
+            <h2 id="profile-title">Builder, systems thinker, and careful finisher.</h2>
+          </div>
+          <div class="copy-stack reveal">
+            <p>
+              This site is ready to become a sharper public profile: the place
+              for background, current focus, favorite projects, writing, and
+              contact paths.
+            </p>
+            <p>
+              Replace this scaffold copy with a short bio, a few proof points,
+              and the kind of work Caleb wants people to remember.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="work" aria-labelledby="work-title">
+        <div class="section-inner">
+          <div class="section-heading compact reveal">
+            <p class="eyebrow">Selected work</p>
+            <h2 id="work-title">Projects to shape next.</h2>
+          </div>
+
+          <div class="project-grid">
+            <article class="project-card reveal">
+              <span class="project-index">01</span>
+              <h3>Signature Project</h3>
+              <p>
+                A short case-study slot for the strongest project, with space
+                for outcomes, stack, links, and a crisp one-sentence hook.
+              </p>
+              <a href="#contact" aria-label="Discuss Signature Project">Discuss project</a>
+            </article>
+
+            <article class="project-card reveal">
+              <span class="project-index">02</span>
+              <h3>Experiment Log</h3>
+              <p>
+                A place for prototypes, learning notes, tools, and technical
+                explorations that show taste and momentum.
+              </p>
+              <a href="#notes" aria-label="Read Experiment Log">Read notes</a>
+            </article>
+
+            <article class="project-card reveal">
+              <span class="project-index">03</span>
+              <h3>Open Source</h3>
+              <p>
+                A slot for GitHub work, contributions, utilities, or anything
+                useful enough to share beyond the site.
+              </p>
+              <a href="https://github.com/calebfernandes" rel="noreferrer">Visit GitHub</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section notes-band" id="notes" aria-labelledby="notes-title">
+        <div class="section-inner notes-layout">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Notes</p>
+            <h2 id="notes-title">Thinking out loud, soon.</h2>
+          </div>
+
+          <div class="note-list reveal">
+            <a class="note-link" href="#contact">
+              <span>Current focus</span>
+              <strong>What I am building and learning right now</strong>
+            </a>
+            <a class="note-link" href="#contact">
+              <span>Field notes</span>
+              <strong>Small observations from projects and experiments</strong>
+            </a>
+            <a class="note-link" href="#contact">
+              <span>Reading list</span>
+              <strong>Ideas worth saving and revisiting</strong>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact-section" id="contact" aria-labelledby="contact-title">
+        <div class="section-inner contact-panel reveal">
+          <div>
+            <p class="eyebrow">Contact</p>
+            <h2 id="contact-title">Make the next version specific.</h2>
+          </div>
+          <p>
+            Add preferred email, social links, resume, and any context that
+            helps the right people reach the right inbox.
+          </p>
+          <div class="contact-links" aria-label="Contact links">
+            <a href="mailto:hello@calebfernandes.com">Email</a>
+            <a href="https://github.com/calebfernandes" rel="noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/" rel="noreferrer">LinkedIn</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>calebfernandes</span>
+      <span>Built for GitHub Pages</span>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
