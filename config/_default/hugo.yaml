@@ -4,9 +4,9 @@
 # This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
 
 # Website name (set in params.yaml under hugoblox.branding.name)
-title: ''
+title: 'Caleb Fernandes'
 # Website URL
-baseURL: 'https://example.com/'
+baseURL: 'https://bytb.github.io/'
 
 ############################
 ## LANGUAGE
@@ -26,6 +26,30 @@ cascade:
       path: /slides/**
       kind: page
     outputs: [HTML, present]
+  - target:
+      path: /blog/**
+    build:
+      render: never
+      list: never
+      publishResources: false
+  - target:
+      path: /courses/**
+    build:
+      render: never
+      list: never
+      publishResources: false
+  - target:
+      path: /projects/**
+    build:
+      render: never
+      list: never
+      publishResources: false
+  - target:
+      path: /slides/**
+    build:
+      render: never
+      list: never
+      publishResources: false
 
 ############################
 ## ADVANCED

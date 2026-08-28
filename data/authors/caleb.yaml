@@ -1,0 +1,167 @@
+schema: hugoblox/author/v1
+slug: caleb
+is_owner: true
+name:
+  display: Caleb Fernandes
+  given: Caleb
+  family: Fernandes
+  alternate: ''
+  pronunciation: ''
+  pronouns: ''
+postnominals: []
+status:
+  icon: ""
+role: Computer Science & Econometrics Student | Machine Learning Researcher
+bio: |
+  I am an undergraduate at the University of South Florida studying computer science,
+  econometrics and quantitative economics, and geographic information systems. My
+  research spans graph machine learning, causal inference, spatial analysis, computer
+  vision, and synthetic data generation.
+
+affiliations:
+  - name: University of South Florida
+    url: https://www.usf.edu/
+
+links:
+  - icon: at-symbol
+    url: mailto:calebfernandes3@gmail.com
+    label: Email Caleb Fernandes
+  - icon: brands/github
+    url: https://github.com/bytb
+    label: GitHub
+  - icon: brands/linkedin
+    url: https://www.linkedin.com/in/caleb-fernandes
+    label: LinkedIn
+  - icon: academicons/orcid
+    url: https://orcid.org/0009-0005-5493-0873
+    label: ORCID
+
+interests:
+  - Graph Machine Learning
+  - Causal Inference
+  - Spatial & Scientific Computing
+  - Synthetic Data Generation
+  - Computer Vision
+
+education:
+  - degree: BS Computer Science
+    institution: University of South Florida, Genshaft Honors College
+    end: 2027-05-01
+  - degree: BS Econometrics and Quantitative Economics
+    institution: University of South Florida, Genshaft Honors College
+    end: 2027-05-01
+    summary: "GPA: 4.0"
+  - degree: Minor in Geographic Information Systems
+    institution: University of South Florida, Genshaft Honors College
+    end: 2027-05-01
+
+experience:
+  - role: Software Engineer Intern
+    org: Wellington Management
+    start: 2026-06-01
+    end: 2026-08-01
+    summary: |
+      - Reverse-engineered a legacy Order Management System spanning 30 relational database tables and mapped its hierarchical rules architecture.
+      - Developed a ReactJS/SQL interface for visualizing, configuring, and auditing trade-routing logic.
+      - Built tooling that enabled quantitative execution teams to configure and backtest routing changes without direct software-engineering intervention, replacing a four-week DBR-based process.
+      - Built order audit-trail functionality to trace decisions between automated low-touch execution and high-touch trader workflows.
+  - role: Undergraduate Econometrics Researcher
+    org: Honors Thesis, University of South Florida
+    start: 2025-08-01
+    summary: |
+      - Developed an end-to-end causal inference study of nuclear power plants, local tax revenue, and school spending across 52 plants and 103,270 school districts.
+      - Designed stacked event studies around plant construction and operation using geographically matched controls.
+      - Estimated post-construction property-tax gains of approximately $7,000 per pupil in host districts and $2,300 per pupil at the county level.
+  - role: Graph Machine Learning Researcher
+    org: Connected Social Artificial Intelligence Lab, University of South Florida
+    start: 2025-08-01
+    summary: |
+      - Lead an undergraduate team developing graph- and LLM-based methods for synthetic electronic health record generation.
+      - Developed EHR-Walk, a random-walk algorithm for generating synthetic patient data from heterogeneous EHR graphs.
+      - Developed baseline graph transfer-learning models and theoretical analysis of computation-graph approaches to embedding differentiation.
+  - role: Lead Graph Machine Learning Researcher
+    org: NSF REU, James Madison University
+    start: 2025-05-01
+    end: 2026-04-01
+    summary: |
+      - Developed ReCYCLE Net, a feature-free, unsupervised Graph Neural Network for community detection using RNBRW cycle information and graph attention.
+      - Evaluated the model on social, citation, and biological networks up to 56,944 nodes, achieving 0.344 ONMI on overlapping protein-complex detection.
+      - First-authored the resulting paper published at the GRaM Workshop at ICLR 2026.
+  - role: Machine Learning and Spatial Researcher
+    org: Dr. Ran Tao's Spatial and Transportation Lab, Wuhan University
+    start: 2024-10-01
+    end: 2026-04-01
+    summary: |
+      - Built a geospatial machine-learning pipeline across 1,048,576 National Highway System road segments and 83,507 census tracts.
+      - Developed a LightGBM hurdle model that achieved 0.919 AUC for growth classification and R² = 0.77 for growth magnitude.
+      - Developed a Python spatial-accessibility model for county-level public EV charging access across the United States.
+  - role: Computer Vision Researcher and Data Developer
+    org: Secure & Intelligent Systems Lab, University of South Florida
+    start: 2024-05-01
+    end: 2025-08-01
+    summary: |
+      - Developed the Unreal Engine 5 procedural content generation implementation for SegGen, an automated multimodal semantic-segmentation dataset pipeline.
+      - Contributed to a published pipeline producing aligned RGB, depth, and pixel-level ground-truth labels.
+  - role: Software Developer Intern
+    org: Gravic Inc.
+    start: 2024-05-01
+    end: 2024-08-01
+    summary: |
+      - Saved more than $20,000 annually by developing C# and VBA libraries to replace Syncfusion dependencies in automated Excel reporting workflows.
+      - Built .NET libraries with ClosedXML and OpenXML to generate Excel reports through C# and VBA applications.
+
+skills:
+  - name: Programming
+    items:
+      - label: Python
+        level: 5
+      - label: SQL
+        level: 5
+      - label: R
+        level: 4
+      - label: C++ / C / C#
+        level: 4
+      - label: VBA
+        level: 4
+  - name: Machine Learning
+    items:
+      - label: Graph Neural Networks
+        level: 5
+      - label: Gradient-Boosted Trees
+        level: 4
+      - label: Computer Vision
+        level: 4
+      - label: LLMs & Synthetic Data
+        level: 4
+  - name: Statistics & Spatial Computing
+    items:
+      - label: Causal Inference & Event Studies
+        level: 5
+      - label: Panel & Time-Series Analysis
+        level: 4
+      - label: Geographic Information Systems
+        level: 5
+      - label: PyTorch, pandas, sf, terra & ggplot2
+        level: 4
+
+languages: []
+
+awards:
+  - title: Barry Goldwater Scholar
+    awarder: Barry Goldwater Scholarship and Excellence in Education Foundation
+    date: "2026-03-27"
+    summary: One of the oldest and most prestigious national undergraduate scholarships in the natural sciences, engineering, and mathematics in the United States.
+    icon: hero/trophy
+  - title: Award in Economics
+    awarder: Gulf Coast Undergraduate Research Symposium
+    date: "2025-10-20"
+    summary: Best presentation in economics for research on spatial disparities in U.S. public EV charging infrastructure.
+    icon: hero/trophy
+  - title: Inducted into Sigma Xi
+    awarder: Sigma Xi Scientific Research Honors Society
+    date: "2025-04-12"
+    icon: hero/academic-cap
+  - title: Introduction to Complexity Certificate
+    awarder: Santa Fe Institute
+    date: "2025-11-09"
+    icon: hero/academic-cap

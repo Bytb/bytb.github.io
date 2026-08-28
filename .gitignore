@@ -67,3 +67,10 @@ Desktop.ini
 
 *.log
 npm-debug.log*
+
+# Local pnpm cache used by the bundled Codex runtime
+.pnpm-store/
+.codex-tools/
+
+# Private working source; the public download is static/uploads/resume.pdf
+Caleb_CV.pdf
