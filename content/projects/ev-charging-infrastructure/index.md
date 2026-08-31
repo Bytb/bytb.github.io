@@ -12,7 +12,7 @@ featured: false
 
 ## Select images
 
-<div class="experience-carousel experience-detail-carousel" data-experience-carousel aria-roledescription="carousel">
+<div class="experience-carousel experience-detail-carousel experience-carousel-landscape" data-experience-carousel aria-roledescription="carousel">
   <div class="experience-carousel-track">
     <figure class="experience-carousel-slide" aria-hidden="false">
       <img src="/media/projects/ev-charging-infrastructure/national-road-network.png" alt="National Highway System road network used for EV charging infrastructure analysis">
