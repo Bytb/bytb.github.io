@@ -61,7 +61,3 @@ Together, the two papers explore a common question: how graph structure can make
 
 - [EHR-Walk synthetic data synthesis](https://github.com/Bytb/EHR_RandomWalk_SynethticDataSynthesis)
 - [High-risk prescribing network analysis](https://github.com/Bytb/EHRShot_Project)
-
-## Results
-
-Pipeline diagrams, synthetic-data evaluations, and result images will be added here.

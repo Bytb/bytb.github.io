@@ -51,7 +51,3 @@ The project evaluates whether explicit cycle structure improves community recove
   <a class="project-resource-button project-resource-github" href="https://github.com/Bytb/RCN">View on GitHub →</a>
   <a class="project-resource-button" href="/uploads/publications/recycle-net-iclr-2026.pdf">Open the paper →</a>
 </div>
-
-## Results
-
-The selected images document the ICLR poster presentation and conference experience.

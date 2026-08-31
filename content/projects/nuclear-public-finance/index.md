@@ -42,7 +42,3 @@ Preliminary estimates indicate post-construction property-tax gains of approxima
 <div class="project-resource-actions">
   <a class="project-resource-button project-resource-github" href="https://github.com/Bytb/NuclearPowerPlant_HT">View on GitHub →</a>
 </div>
-
-## Results
-
-The gallery highlights the national plant-site geography, construction and operation timing, and district- and county-level expenditure trajectories used in the analysis.

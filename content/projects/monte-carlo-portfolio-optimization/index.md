@@ -16,7 +16,3 @@ Detailed project methodology, implementation notes, and optimization objectives 
 ## GitHub repository
 
 Repository link coming soon.
-
-## Results
-
-Efficient-frontier plots, simulation outputs, and other result images will be added here.

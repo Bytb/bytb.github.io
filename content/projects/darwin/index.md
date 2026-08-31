@@ -16,7 +16,3 @@ A full description of Darwin, its objectives, and its implementation will be add
 ## GitHub repository
 
 Repository link coming soon.
-
-## Results
-
-Result images and performance visualizations will be added here.

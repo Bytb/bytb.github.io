@@ -16,7 +16,3 @@ Detailed project methodology, implementation notes, and portfolio-construction o
 ## GitHub repository
 
 Repository link coming soon.
-
-## Results
-
-Performance charts, allocation visualizations, and other result images will be added here.

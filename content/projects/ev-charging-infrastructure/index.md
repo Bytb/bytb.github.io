@@ -43,7 +43,3 @@ The broader research also includes a Python spatial-accessibility model for coun
   <a class="project-resource-button project-resource-github" href="https://github.com/Bytb/EVChargingStationPrediction">View on GitHub →</a>
   <a class="project-resource-button" href="https://www.sciencedirect.com/science/article/pii/S0966692325003989">Read the related publication →</a>
 </div>
-
-## Results
-
-The selected figures show the national road-network analysis, predicted versus observed charging-station counts, and the model's classification and regression metrics.
