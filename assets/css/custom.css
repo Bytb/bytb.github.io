@@ -741,6 +741,75 @@ a { text-underline-offset: 0.2em; }
   object-fit: cover;
 }
 
+.experience-project-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1.25rem -1.5rem -1.5rem;
+  padding: 1.1rem 1.4rem;
+  border: 0;
+  border-top: 1px solid rgba(6, 90, 130, 0.17);
+  border-radius: 0 0 11px 11px !important;
+  background: linear-gradient(110deg, var(--space-indigo), var(--baltic-blue));
+  color: white !important;
+  font-weight: 750;
+  text-decoration: none;
+  transition: filter 160ms ease, padding-right 160ms ease;
+}
+
+.experience-project-link:hover {
+  padding-right: 1.15rem;
+  color: white !important;
+  filter: brightness(1.08);
+}
+
+.paper-highlight-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0 2.5rem;
+}
+
+.paper-highlight-card {
+  display: flex;
+  min-height: 12rem;
+  padding: 1.4rem;
+  border: 1px solid rgba(6, 90, 130, 0.2);
+  border-radius: 10px;
+  background: linear-gradient(145deg, rgba(225, 243, 234, 0.92), rgba(255, 255, 255, 0.82));
+  color: var(--ink) !important;
+  box-shadow: var(--soft-shadow);
+  flex-direction: column;
+  text-decoration: none;
+  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.paper-highlight-card:hover {
+  border-color: var(--baltic-blue);
+  box-shadow: 0 15px 34px rgba(6, 90, 130, 0.14);
+  transform: translateY(-3px);
+}
+
+.paper-highlight-card strong {
+  color: var(--space-indigo);
+  font-size: 1.15rem;
+  line-height: 1.35;
+}
+
+.paper-highlight-card span {
+  margin-top: 0.75rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.paper-highlight-card em {
+  margin-top: auto;
+  padding-top: 1rem;
+  color: var(--baltic-blue);
+  font-style: normal;
+  font-weight: 750;
+}
+
 .experience-gallery {
   margin-top: 2.5rem;
   overflow: hidden;
@@ -977,6 +1046,10 @@ a { text-underline-offset: 0.2em; }
   }
 
   .experience-inline-more:not(:empty) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .paper-highlight-grid {
     grid-template-columns: minmax(0, 1fr);
   }
 }

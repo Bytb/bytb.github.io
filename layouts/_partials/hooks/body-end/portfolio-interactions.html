@@ -167,11 +167,26 @@
         ['/media/experience/wellington/team-event.jpeg', 'Wellington Management colleagues at an outdoor team event'],
       ],
     };
+    const experienceProjectLinks = {
+      'Graph Machine Learning Researcher': {
+        url: '/projects/ehr-walk/',
+        label: 'Explore the EHR-Walk project',
+      },
+    };
     document.querySelectorAll('#section-resume-experience h3').forEach((heading) => {
       const role = heading.textContent.trim();
       if (!experienceRoles.has(role)) return;
       const card = heading.closest('.relative.bg-white');
-      if (!card || card.querySelector('.experience-inline-gallery')) return;
+      if (!card || card.querySelector('.experience-inline-gallery, .experience-project-link')) return;
+      const projectLink = experienceProjectLinks[role];
+      if (projectLink) {
+        const link = document.createElement('a');
+        link.className = 'experience-project-link';
+        link.href = projectLink.url;
+        link.innerHTML = `<span>${projectLink.label}</span><span aria-hidden="true">→</span>`;
+        card.appendChild(link);
+        return;
+      }
       const photos = experiencePhotos[role] || [];
       const preview = photos[0] || ['/media/experience-placeholder.svg', 'Placeholder for experience images'];
       const expandedPhotos = photos.map(([src, alt]) => `<img src="${src}" alt="${alt}" loading="lazy">`).join('');
