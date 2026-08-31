@@ -160,21 +160,32 @@
       'Computer Vision Researcher and Data Developer',
       'Software Developer Intern',
     ]);
+    const experiencePhotos = {
+      'Software Engineer Intern': [
+        ['/media/experience/wellington/team-lobby.jpeg', 'Wellington Management interns gathered in the office lobby'],
+        ['/media/experience/wellington/team-office.jpeg', 'Wellington Management intern team overlooking Boston'],
+        ['/media/experience/wellington/team-event.jpeg', 'Wellington Management colleagues at an outdoor team event'],
+      ],
+    };
     document.querySelectorAll('#section-resume-experience h3').forEach((heading) => {
-      if (!experienceRoles.has(heading.textContent.trim())) return;
+      const role = heading.textContent.trim();
+      if (!experienceRoles.has(role)) return;
       const card = heading.closest('.relative.bg-white');
       if (!card || card.querySelector('.experience-inline-gallery')) return;
+      const photos = experiencePhotos[role] || [];
+      const preview = photos[0] || ['/media/experience-placeholder.svg', 'Placeholder for experience images'];
+      const expandedPhotos = photos.map(([src, alt]) => `<img src="${src}" alt="${alt}" loading="lazy">`).join('');
       const gallery = document.createElement('details');
       gallery.className = 'experience-inline-gallery';
       gallery.innerHTML = `
         <summary aria-label="Toggle experience images">
           <span class="experience-inline-preview">
-            <img src="/media/experience-placeholder.svg" alt="Placeholder for experience images">
+            <img src="${preview[0]}" alt="${preview[1]}">
             <span class="experience-inline-fade" aria-hidden="true"></span>
             <span class="experience-inline-arrow" aria-hidden="true"></span>
           </span>
         </summary>
-        <div class="experience-inline-more" aria-label="Additional experience images"></div>`;
+        <div class="experience-inline-more" aria-label="Additional experience images">${expandedPhotos}</div>`;
       card.appendChild(gallery);
     });
 

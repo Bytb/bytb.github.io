@@ -657,13 +657,14 @@ a { text-underline-offset: 0.2em; }
   overflow: hidden;
   border: 0;
   border-top: 1px solid rgba(6, 90, 130, 0.17);
-  border-radius: 0 0 11px 11px;
+  border-radius: 0 0 11px 11px !important;
   background: rgba(255, 255, 255, 0.62);
 }
 
 .experience-inline-gallery summary {
   cursor: pointer;
   list-style: none;
+  border-radius: 0 !important;
 }
 
 .experience-inline-gallery summary::-webkit-details-marker {
@@ -675,6 +676,7 @@ a { text-underline-offset: 0.2em; }
   display: block;
   height: 84px;
   overflow: hidden;
+  border-radius: 0 !important;
 }
 
 .experience-inline-gallery[open] .experience-inline-preview {
@@ -686,6 +688,8 @@ a { text-underline-offset: 0.2em; }
   width: 100%;
   height: auto;
   margin: 0;
+  border-radius: 0 !important;
+  object-fit: cover;
 }
 
 .experience-inline-fade {
@@ -718,6 +722,23 @@ a { text-underline-offset: 0.2em; }
 
 .experience-inline-more:empty {
   display: none;
+}
+
+.experience-inline-more:not(:empty) {
+  display: grid;
+  padding: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.experience-inline-more img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  margin: 0;
+  border-radius: 8px;
+  object-fit: cover;
 }
 
 .experience-gallery {
@@ -952,6 +973,10 @@ a { text-underline-offset: 0.2em; }
   }
 
   #projects .prose h3 + ul {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .experience-inline-more:not(:empty) {
     grid-template-columns: minmax(0, 1fr);
   }
 }
