@@ -46,7 +46,7 @@ sections:
       subtitle: 'Selected honors and research milestones'
       text: |-
         - [**2026 Barry Goldwater Scholar**  
-          Featured by the University of South Florida Office of National Scholars.](https://www.usf.edu/ons/news/2026/two-usf-students-named-2026-goldwater-scholars.aspx)
+          One of the oldest and most prestigious national undergraduate scholarships in the natural sciences, engineering, and mathematics in the United States.](https://www.usf.edu/ons/news/2026/two-usf-students-named-2026-goldwater-scholars.aspx)
 
         - [**ICLR 2026 publication**  
           First-authored ReCYCLE Net, published at the GRaM Workshop at ICLR 2026.](/uploads/publications/recycle-net-iclr-2026.pdf)
