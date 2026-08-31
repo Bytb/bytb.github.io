@@ -151,35 +151,44 @@
       });
     }
 
-    const experienceRoles = new Set([
-      'Software Engineer Intern',
-      'Undergraduate Econometrics Researcher',
-      'Graph Machine Learning Researcher',
-      'Lead Graph Machine Learning Researcher',
-      'Machine Learning and Spatial Researcher',
-      'Computer Vision Researcher and Data Developer',
-      'Software Developer Intern',
-    ]);
-    const experiencePhotos = {
-      'Software Engineer Intern': [
-        ['/media/experience/wellington/team-lobby.jpeg', 'Wellington Management interns gathered in the office lobby'],
-        ['/media/experience/wellington/team-office.jpeg', 'Wellington Management intern team overlooking Boston'],
-        ['/media/experience/wellington/team-event.jpeg', 'Wellington Management colleagues at an outdoor team event'],
-      ],
-    };
     const experienceProjectLinks = {
+      'Software Engineer Intern': {
+        label: 'Explore Wellington Management',
+        photos: [
+          ['/media/experience/wellington/team-lobby.jpeg', 'Wellington Management interns gathered in the office lobby'],
+          ['/media/experience/wellington/team-office.jpeg', 'Wellington Management intern team overlooking Boston'],
+          ['/media/experience/wellington/team-event.jpeg', 'Wellington Management colleagues at an outdoor team event'],
+        ],
+      },
+      'Undergraduate Econometrics Researcher': {
+        url: '/projects/nuclear-public-finance/',
+        label: 'Explore the Nuclear Power project',
+      },
       'Graph Machine Learning Researcher': {
         url: '/projects/ehr-walk/',
         label: 'Explore the EHR-Walk project',
       },
+      'Lead Graph Machine Learning Researcher': {
+        url: '/projects/recycle-net/',
+        label: 'Explore the ReCYCLE Net project',
+      },
+      'Machine Learning and Spatial Researcher': {
+        url: '/projects/ev-charging-infrastructure/',
+        label: 'Explore the EV Charging Infrastructure project',
+      },
+      'Computer Vision Researcher and Data Developer': {
+        url: '/events/furs-2025/',
+        label: 'Explore the FURS conference presentation',
+      },
     };
     document.querySelectorAll('#section-resume-experience h3').forEach((heading) => {
       const role = heading.textContent.trim();
-      if (!experienceRoles.has(role)) return;
       const card = heading.closest('.relative.bg-white');
-      if (!card || card.querySelector('.experience-inline-gallery, .experience-project-link')) return;
+      if (!card || card.querySelector('.experience-project-link')) return;
       const projectLink = experienceProjectLinks[role];
-      if (projectLink) {
+      if (!projectLink) return;
+
+      if (projectLink.url) {
         const link = document.createElement('a');
         link.className = 'experience-project-link';
         link.href = projectLink.url;
@@ -187,21 +196,60 @@
         card.appendChild(link);
         return;
       }
-      const photos = experiencePhotos[role] || [];
-      const preview = photos[0] || ['/media/experience-placeholder.svg', 'Placeholder for experience images'];
-      const expandedPhotos = photos.map(([src, alt]) => `<img src="${src}" alt="${alt}" loading="lazy">`).join('');
-      const gallery = document.createElement('details');
-      gallery.className = 'experience-inline-gallery';
-      gallery.innerHTML = `
-        <summary aria-label="Toggle experience images">
-          <span class="experience-inline-preview">
-            <img src="${preview[0]}" alt="${preview[1]}">
-            <span class="experience-inline-fade" aria-hidden="true"></span>
-            <span class="experience-inline-arrow" aria-hidden="true"></span>
-          </span>
-        </summary>
-        <div class="experience-inline-more" aria-label="Additional experience images">${expandedPhotos}</div>`;
-      card.appendChild(gallery);
+
+      const trigger = document.createElement('button');
+      trigger.type = 'button';
+      trigger.className = 'experience-project-link experience-modal-trigger';
+      trigger.innerHTML = `<span>${projectLink.label}</span><span aria-hidden="true">→</span>`;
+      card.appendChild(trigger);
+
+      const modal = document.createElement('dialog');
+      modal.className = 'experience-modal';
+      modal.setAttribute('aria-label', projectLink.label);
+      modal.innerHTML = `
+        <div class="experience-modal-panel">
+          <button class="experience-modal-close" type="button" aria-label="Close gallery">×</button>
+          <h2>Wellington Management</h2>
+          <div class="experience-carousel" aria-roledescription="carousel">
+            <div class="experience-carousel-track">
+              ${projectLink.photos.map(([src, alt], index) => `
+                <figure class="experience-carousel-slide" aria-hidden="${index !== 0}">
+                  <img src="${src}" alt="${alt}" loading="lazy">
+                </figure>`).join('')}
+            </div>
+            <button class="experience-carousel-arrow experience-carousel-prev" type="button" aria-label="Previous image">‹</button>
+            <button class="experience-carousel-arrow experience-carousel-next" type="button" aria-label="Next image">›</button>
+          </div>
+          <p class="experience-carousel-status" aria-live="polite"></p>
+        </div>`;
+      document.body.appendChild(modal);
+
+      const track = modal.querySelector('.experience-carousel-track');
+      const slides = [...modal.querySelectorAll('.experience-carousel-slide')];
+      const status = modal.querySelector('.experience-carousel-status');
+      let activeSlide = 0;
+      let carouselTimer;
+      const showSlide = (index) => {
+        activeSlide = (index + slides.length) % slides.length;
+        track.style.transform = `translateX(-${activeSlide * 100}%)`;
+        slides.forEach((slide, slideIndex) => slide.setAttribute('aria-hidden', String(slideIndex !== activeSlide)));
+        status.textContent = `Image ${activeSlide + 1} of ${slides.length}`;
+      };
+      const stopCarousel = () => window.clearInterval(carouselTimer);
+      const startCarousel = () => {
+        stopCarousel();
+        if (!reduceMotion) carouselTimer = window.setInterval(() => showSlide(activeSlide + 1), 5000);
+      };
+      trigger.addEventListener('click', () => {
+        showSlide(0);
+        modal.showModal();
+        startCarousel();
+      });
+      modal.querySelector('.experience-modal-close').addEventListener('click', () => modal.close());
+      modal.querySelector('.experience-carousel-prev').addEventListener('click', () => { showSlide(activeSlide - 1); startCarousel(); });
+      modal.querySelector('.experience-carousel-next').addEventListener('click', () => { showSlide(activeSlide + 1); startCarousel(); });
+      modal.addEventListener('close', stopCarousel);
+      modal.addEventListener('click', (event) => { if (event.target === modal) modal.close(); });
     });
 
     const detailRoute = location.pathname.match(/^\/(projects|publications|events|experience-details)\/[^/]+\/?$/);
