@@ -160,12 +160,8 @@
 
     const experienceProjectLinks = {
       'Software Engineer Intern': {
+        url: '/experience-details/wellington/',
         label: 'Explore Wellington Management',
-        photos: [
-          ['/media/experience/wellington/team-lobby.jpeg', 'Wellington Management interns gathered in the office lobby'],
-          ['/media/experience/wellington/team-office.jpeg', 'Wellington Management intern team overlooking Boston'],
-          ['/media/experience/wellington/team-event.jpeg', 'Wellington Management colleagues at an outdoor team event'],
-        ],
       },
       'Undergraduate Econometrics Researcher': {
         url: '/projects/nuclear-public-finance/',
@@ -195,45 +191,33 @@
       const projectLink = experienceProjectLinks[role];
       if (!projectLink) return;
 
-      if (projectLink.url) {
-        const link = document.createElement('a');
-        link.className = 'experience-project-link';
-        link.href = projectLink.url;
-        link.innerHTML = `<span>${projectLink.label}</span><span aria-hidden="true">→</span>`;
-        card.appendChild(link);
-        return;
-      }
+      const link = document.createElement('a');
+      link.className = 'experience-project-link';
+      link.href = projectLink.url;
+      link.innerHTML = `<span>${projectLink.label}</span><span aria-hidden="true">→</span>`;
+      card.appendChild(link);
+    });
 
-      const trigger = document.createElement('button');
-      trigger.type = 'button';
-      trigger.className = 'experience-project-link experience-modal-trigger';
-      trigger.innerHTML = `<span>${projectLink.label}</span><span aria-hidden="true">→</span>`;
-      card.appendChild(trigger);
+    document.querySelectorAll('#quant-projects [role="article"], #research-projects [role="article"]').forEach((card) => {
+      card.classList.add('project-experience-card');
+      const media = card.firstElementChild;
+      if (media?.classList.contains('aspect-[16/9]')) media.remove();
+      const heading = card.querySelector('h3');
+      const detailLink = [...card.querySelectorAll('a')].find((link) => link.textContent.trim() === 'Read more');
+      if (!heading || !detailLink) return;
+      const oldWrapper = detailLink.parentElement;
+      detailLink.remove();
+      oldWrapper?.remove();
+      detailLink.className = 'experience-project-link project-card-explore-link';
+      detailLink.innerHTML = `<span>Explore ${heading.textContent.trim()}</span><span aria-hidden="true">→</span>`;
+      card.appendChild(detailLink);
+    });
 
-      const modal = document.createElement('dialog');
-      modal.className = 'experience-modal';
-      modal.setAttribute('aria-label', projectLink.label);
-      modal.innerHTML = `
-        <div class="experience-modal-panel">
-          <button class="experience-modal-close" type="button" aria-label="Close gallery">×</button>
-          <h2>Wellington Management</h2>
-          <div class="experience-carousel" aria-roledescription="carousel">
-            <div class="experience-carousel-track">
-              ${projectLink.photos.map(([src, alt], index) => `
-                <figure class="experience-carousel-slide" aria-hidden="${index !== 0}">
-                  <img src="${src}" alt="${alt}" loading="lazy">
-                </figure>`).join('')}
-            </div>
-            <button class="experience-carousel-arrow experience-carousel-prev" type="button" aria-label="Previous image">‹</button>
-            <button class="experience-carousel-arrow experience-carousel-next" type="button" aria-label="Next image">›</button>
-          </div>
-          <p class="experience-carousel-status" aria-live="polite"></p>
-        </div>`;
-      document.body.appendChild(modal);
-
-      const track = modal.querySelector('.experience-carousel-track');
-      const slides = [...modal.querySelectorAll('.experience-carousel-slide')];
-      const status = modal.querySelector('.experience-carousel-status');
+    document.querySelectorAll('[data-experience-carousel]').forEach((carousel) => {
+      const track = carousel.querySelector('.experience-carousel-track');
+      const slides = [...carousel.querySelectorAll('.experience-carousel-slide')];
+      const status = carousel.querySelector('.experience-carousel-status');
+      if (!track || !slides.length || !status) return;
       let activeSlide = 0;
       let carouselTimer;
       const showSlide = (index) => {
@@ -247,16 +231,10 @@
         stopCarousel();
         if (!reduceMotion) carouselTimer = window.setInterval(() => showSlide(activeSlide + 1), 5000);
       };
-      trigger.addEventListener('click', () => {
-        showSlide(0);
-        modal.showModal();
-        startCarousel();
-      });
-      modal.querySelector('.experience-modal-close').addEventListener('click', () => modal.close());
-      modal.querySelector('.experience-carousel-prev').addEventListener('click', () => { showSlide(activeSlide - 1); startCarousel(); });
-      modal.querySelector('.experience-carousel-next').addEventListener('click', () => { showSlide(activeSlide + 1); startCarousel(); });
-      modal.addEventListener('close', stopCarousel);
-      modal.addEventListener('click', (event) => { if (event.target === modal) modal.close(); });
+      carousel.querySelector('.experience-carousel-prev')?.addEventListener('click', () => { showSlide(activeSlide - 1); startCarousel(); });
+      carousel.querySelector('.experience-carousel-next')?.addEventListener('click', () => { showSlide(activeSlide + 1); startCarousel(); });
+      showSlide(0);
+      startCarousel();
     });
 
     const detailRoute = location.pathname.match(/^\/(projects|publications|events|experience-details)\/[^/]+\/?$/);
