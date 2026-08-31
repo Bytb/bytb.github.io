@@ -13,3 +13,13 @@ tags:
   - Synthetic Data
 featured: false
 ---
+
+## Presentation
+
+This poster presentation covered the use of Unreal Engine 5 for synthetic dataset creation.
+
+## Published paper
+
+<div class="project-resource-actions">
+  <a class="project-resource-button" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12431427/">Open the published paper →</a>
+</div>
