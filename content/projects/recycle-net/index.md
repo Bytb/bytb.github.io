@@ -34,7 +34,16 @@ featured: false
 
 ## Project description
 
-ReCYCLE Net is a feature-free, unsupervised graph neural network for community detection that incorporates renewal non-backtracking random-walk cycle information into graph-attention mechanisms.
+ReCYCLE Net (RCN) is a feature-free, cycle-aware graph neural network for unsupervised community detection. It converts Renewal Non-Backtracking Random Walk retrace probabilities into edge-reinforcement weights and injects that cycle signal into a Graph Attention Network. The model learns node embeddings through a combined objective covering modularity, Laplacian smoothness, contrastive consistency, and orthogonality, then extracts communities with clustering.
+
+The project evaluates whether explicit cycle structure improves community recovery across social, citation, and protein-interaction graphs. RCN reached **0.60 NMI and 0.67 ARI on PolBooks**, a **0.85 Facebook silhouette score**, and **0.344 overlap NMI on Complex Portal at two memberships per node**. On the overlapping protein-complex benchmark, that ONMI exceeded the reported generative, attention, and modularity baselines of 0.243, 0.232, and 0.140. Results were strongest in cycle-rich graphs, while performance remained competitive when cyclic closure was weaker.
+
+### Technical scale
+
+- Evaluated graphs as large as 56,944 nodes.
+- Combined cycle-aware attention with a fully unsupervised multi-term loss.
+- Tested structural and ground-truth community counts, overlapping memberships, ablations, rewired graphs, and multiple random seeds.
+- First-authored work published in the GRaM Workshop proceedings at ICLR 2026.
 
 ## GitHub repository
 

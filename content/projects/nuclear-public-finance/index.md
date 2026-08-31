@@ -31,7 +31,11 @@ featured: false
 
 ## Project description
 
-This honors-thesis project studies nuclear development, local tax revenue, and school spending using geographically matched controls and stacked event studies.
+This honors-thesis project studies how nuclear power plant development changes local public finances, with particular attention to property-tax revenue and school spending. The analysis links **52 nuclear plants** to a national panel of **103,270 school districts**, then constructs geographically matched comparison groups around plant construction and commercial operation.
+
+The empirical design uses stacked event studies at both the school-district and county levels. The four-panel expenditure figure compares treated and control trajectories around construction and operation, while the timeline and national map document when and where the identifying events occur.
+
+Preliminary estimates indicate post-construction property-tax gains of approximately **$7,000 per pupil in host school districts** and **$2,300 per pupil at the county level**. The project is designed to distinguish the localized fiscal effects of construction from the longer-run effects of plant operation and to test how large infrastructure investments propagate through local tax bases and education spending.
 
 ## GitHub repository
 
