@@ -741,6 +741,38 @@ a { text-underline-offset: 0.2em; }
   background: var(--parchment);
 }
 
+.project-resource-actions {
+  display: flex;
+  margin: 1rem 0 2rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.project-resource-button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.8rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: white;
+  color: var(--space-indigo) !important;
+  font-weight: 500;
+  text-decoration: none;
+  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.project-resource-button:hover {
+  border-color: var(--baltic-blue);
+  box-shadow: 0 8px 18px rgba(33, 41, 92, 0.12);
+  transform: translateY(-1px);
+}
+
+.project-resource-linkedin {
+  border-color: rgba(10, 102, 194, 0.35);
+  color: #0a66c2 !important;
+}
+
 #quant-projects .container,
 #research-projects .container {
   width: min(1200px, 100%);

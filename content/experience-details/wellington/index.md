@@ -6,15 +6,6 @@ authors: []
 profile: false
 ---
 
-## Wellington Management
-
-June 2026 - August 2026
-
-- Reverse-engineered a legacy Order Management System spanning 30 relational database tables and mapped its hierarchical rules architecture.
-- Developed a ReactJS/SQL interface for visualizing, configuring, and auditing trade-routing logic.
-- Built tooling that enabled quantitative execution teams to configure and backtest routing changes without direct software-engineering intervention, replacing a four-week DBR-based process.
-- Built order audit-trail functionality to trace decisions between automated low-touch execution and high-touch trader workflows.
-
 ## Experience gallery
 
 <div class="experience-carousel experience-detail-carousel" data-experience-carousel aria-roledescription="carousel">
@@ -33,3 +24,12 @@ June 2026 - August 2026
   <button class="experience-carousel-arrow experience-carousel-next" type="button" aria-label="Next image">›</button>
   <p class="experience-carousel-status" aria-live="polite"></p>
 </div>
+
+## Work completed
+
+Wellington Management · June 2026 - August 2026
+
+- Reverse-engineered a legacy Order Management System spanning 30 relational database tables and mapped its hierarchical rules architecture.
+- Developed a ReactJS/SQL interface for visualizing, configuring, and auditing trade-routing logic.
+- Built tooling that enabled quantitative execution teams to configure and backtest routing changes without direct software-engineering intervention, replacing a four-week DBR-based process.
+- Built order audit-trail functionality to trace decisions between automated low-touch execution and high-touch trader workflows.
