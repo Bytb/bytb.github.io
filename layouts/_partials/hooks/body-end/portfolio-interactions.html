@@ -1,5 +1,12 @@
 <script>
   window.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('span').forEach((element) => {
+      if (!/^\d+\s+min read$/i.test(element.textContent.trim())) return;
+      const separator = element.previousElementSibling;
+      if (separator && separator.textContent.trim() === '•') separator.remove();
+      element.remove();
+    });
+
     const socialLabels = [
       ['mailto:', 'Email Caleb Fernandes'],
       ['github.com', 'GitHub'],
