@@ -57,9 +57,10 @@ Together, the two papers explore a common question: how graph structure can make
   </a>
 </div>
 
-## GitHub repository
+## GitHub repositories
 
-Repository link coming soon.
+- [EHR-Walk synthetic data synthesis](https://github.com/Bytb/EHR_RandomWalk_SynethticDataSynthesis)
+- [High-risk prescribing network analysis](https://github.com/Bytb/EHRShot_Project)
 
 ## Results
 
