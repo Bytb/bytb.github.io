@@ -663,7 +663,7 @@ a { text-underline-offset: 0.2em; }
   border-radius: 0 0 11px 11px !important;
   background: linear-gradient(110deg, var(--space-indigo), var(--baltic-blue));
   color: white !important;
-  font-weight: 750;
+  font-weight: 400;
   text-decoration: none;
   transition: filter 160ms ease, padding-right 160ms ease;
 }
@@ -686,10 +686,10 @@ button.experience-project-link {
   max-height: calc(100vh - 2rem);
   padding: 0;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--line);
   border-radius: 14px;
-  background: #081a3d;
-  color: white;
+  background: var(--parchment);
+  color: var(--ink);
   box-shadow: 0 30px 90px rgba(4, 15, 41, 0.5);
 }
 
@@ -700,13 +700,13 @@ button.experience-project-link {
 
 .experience-modal-panel {
   position: relative;
-  padding: 1.25rem;
+  padding: 1.5rem;
 }
 
 .experience-modal h2 {
   margin: 0 3rem 1rem 0;
-  color: white;
-  font-size: 1.35rem;
+  color: var(--space-indigo);
+  font-size: 1.6rem;
 }
 
 .experience-modal-close {
@@ -718,10 +718,10 @@ button.experience-project-link {
   width: 2.5rem;
   height: 2.5rem;
   padding: 0;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid var(--line);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--space-indigo);
   cursor: pointer;
   font-size: 1.8rem;
   line-height: 1;
@@ -778,7 +778,7 @@ button.experience-project-link {
 
 .experience-carousel-status {
   margin: 0.8rem 0 0;
-  color: rgba(255, 255, 255, 0.78);
+  color: var(--muted);
   font-size: 0.9rem;
   text-align: center;
 }
