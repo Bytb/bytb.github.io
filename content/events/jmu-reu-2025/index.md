@@ -6,8 +6,8 @@ location: "James Madison University, Harrisonburg, VA"
 summary: "Poster presentation on RNBRW-augmented graph neural networks for community detection."
 event_start: "2025-07-28T00:00:00Z"
 event_all_day: true
-authors:
-  - caleb
+authors: []
+profile: false
 tags:
   - Graph Neural Networks
   - Community Detection

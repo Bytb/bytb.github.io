@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Experience gallery placeholder</title>
+  <desc id="desc">A blue abstract placeholder for future experience images.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#102a62"/>
+      <stop offset="0.55" stop-color="#065a82"/>
+      <stop offset="1" stop-color="#78c6a3"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="72%" cy="28%" r="60%">
+      <stop offset="0" stop-color="#fff" stop-opacity=".32"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="675" rx="28" fill="url(#bg)"/>
+  <rect width="1200" height="675" rx="28" fill="url(#glow)"/>
+  <path d="M0 520 C210 390 350 630 565 472 S900 350 1200 510 V675 H0Z" fill="#fff" opacity=".13"/>
+  <g fill="none" stroke="#fff" stroke-width="9" opacity=".88">
+    <rect x="498" y="204" width="204" height="150" rx="18"/>
+    <circle cx="555" cy="254" r="18"/>
+    <path d="m515 329 58-55 42 38 31-28 40 45"/>
+  </g>
+  <text x="600" y="414" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="34" font-weight="700">Experience Gallery</text>
+  <text x="600" y="457" text-anchor="middle" fill="#fff" opacity=".8" font-family="Arial, sans-serif" font-size="22">Results and images coming soon</text>
+</svg>

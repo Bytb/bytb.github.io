@@ -6,8 +6,8 @@ location: "Rice University, Houston, TX"
 summary: "Oral presentation awarded best presentation in economics."
 event_start: "2025-10-20T00:00:00Z"
 event_all_day: true
-authors:
-  - caleb
+authors: []
+profile: false
 tags:
   - Geographic Information Systems
   - Electric Vehicles

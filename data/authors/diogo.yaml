@@ -1,0 +1,11 @@
+schema: hugoblox/author/v1
+slug: diogo
+is_owner: false
+name:
+  display: Diogo Baerlocher
+  given: Diogo
+  family: Baerlocher
+links:
+  - icon: hero/globe-alt
+    url: https://diogobaerlocher.github.io/
+    label: Diogo Baerlocher's website

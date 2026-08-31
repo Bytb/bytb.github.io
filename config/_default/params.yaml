@@ -32,27 +32,27 @@ hugoblox:
   # ────────────────────────────────────────────────────────────────────────────
   theme:
     # Mode: 'light', 'dark', or 'system' (follows OS preference)
-    mode: system
+    mode: light
     # Theme pack: name from data/themes/ or { light: "x", dark: "y" } for mix-and-match
     pack: "default"
     # Optional: Override theme pack colors
     colors:
-      primary: "" # Tailwind palette name or hex (e.g., "indigo" or "#6366f1")
-      secondary: ""
+      primary: "#065a82" # Baltic blue
+      secondary: "#1b3b6f" # Regal navy
       neutral: "" # Affects gray utilities (text-gray-*, bg-gray-*)
     # Optional: Mode-specific color overrides
     colors_light: {}
     colors_dark: {}
     # Optional: Semantic surface color overrides
     surfaces:
-      background: ""
-      foreground: ""
+      background: "#f3f2ef"
+      foreground: "#21295c"
       header:
-        background: ""
-        foreground: ""
+        background: "#f3f2ef"
+        foreground: "#21295c"
       footer:
-        background: ""
-        foreground: ""
+        background: "#f3f2ef"
+        foreground: "#21295c"
 
   # ────────────────────────────────────────────────────────────────────────────
   # TYPOGRAPHY
@@ -60,7 +60,7 @@ hugoblox:
   # ────────────────────────────────────────────────────────────────────────────
   typography:
     # Theme pack: name from data/fonts/
-    pack: "academic"
+    pack: "modern"
 
   # ────────────────────────────────────────────────────────────────────────────
   # LAYOUT
@@ -68,9 +68,9 @@ hugoblox:
   # ────────────────────────────────────────────────────────────────────────────
   layout:
     # Border radius: 'none', 'sm', 'md', 'lg', or 'full'
-    radius: "md"
+    radius: "sm"
     # Spacing density: 'compact', 'comfortable', or 'spacious'
-    spacing: "spacious"
+    spacing: "comfortable"
     # Avatar shape in author profiles
     avatar_shape: circle # circle | square | rounded
 
@@ -88,7 +88,7 @@ hugoblox:
     align: center # left | center | right
     # Feature toggles
     search: true
-    theme_toggle: true
+    theme_toggle: false
     theme_picker: false
     language_switcher: false
     # Call-to-action button

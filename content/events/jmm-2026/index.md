@@ -6,8 +6,8 @@ location: "Washington, DC"
 summary: "Poster presentation on ReCYCLE Net and large-scale community detection."
 event_start: "2026-01-06T00:00:00Z"
 event_all_day: true
-authors:
-  - caleb
+authors: []
+profile: false
 tags:
   - Graph Neural Networks
   - Community Detection

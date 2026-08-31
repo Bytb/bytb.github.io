@@ -1,0 +1,210 @@
+<script>
+  (() => {
+    const socialLabels = [
+      ['mailto:', 'Email Caleb Fernandes'],
+      ['github.com', 'GitHub'],
+      ['linkedin.com', 'LinkedIn'],
+      ['scholar.google.com', 'Google Scholar'],
+      ['orcid.org', 'ORCID'],
+    ];
+    document.querySelectorAll('.resume-biography a[href]').forEach((link) => {
+      const match = socialLabels.find(([part]) => link.href.includes(part));
+      if (match) link.setAttribute('aria-label', match[1]);
+    });
+
+    const heroLeft = document.querySelector('.resume-biography > div > .grid')?.firstElementChild;
+    const keywordsSection = document.getElementById('profile-keywords');
+    const keywordsList = keywordsSection?.querySelector('.prose ul');
+    if (heroLeft && keywordsList) {
+      const keywords = document.createElement('aside');
+      keywords.className = 'profile-keywords';
+      keywords.setAttribute('aria-labelledby', 'profile-keywords-title');
+      keywords.innerHTML = '<h2 id="profile-keywords-title">Keywords</h2>';
+      keywords.appendChild(keywordsList);
+      heroLeft.appendChild(keywords);
+      keywordsSection.remove();
+    }
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const roleLine = [...(heroLeft?.querySelectorAll('p') || [])]
+      .find((paragraph) => paragraph.textContent.includes('Machine Learning Researcher'));
+    if (roleLine) {
+      const rolePrefix = 'Computer Science & Econometrics | ';
+      const rolePhrases = [
+        'Machine Learning Researcher',
+        '2026 Goldwater Scholar',
+        'State-Ranked Saxophonist',
+        'Quantitative Data Scientist',
+        'Decent Golfer :)',
+      ];
+      const prefix = document.createElement('span');
+      const rotating = document.createElement('span');
+      prefix.className = 'role-prefix';
+      prefix.textContent = rolePrefix;
+      rotating.className = 'rotating-typewriter';
+      rotating.setAttribute('aria-hidden', 'true');
+      roleLine.classList.add('rotating-role');
+      roleLine.setAttribute('aria-label', `Computer Science and Econometrics. ${rolePhrases.join(', ')}.`);
+      roleLine.textContent = '';
+      roleLine.append(prefix, rotating);
+
+      if (reduceMotion) {
+        rotating.textContent = rolePhrases[0];
+      } else {
+        rotating.classList.add('is-typing');
+        let phraseIndex = 0;
+        let characterIndex = 0;
+        let deleting = false;
+        const updateRole = () => {
+          const phrase = rolePhrases[phraseIndex];
+          characterIndex += deleting ? -1 : 1;
+          rotating.textContent = phrase.slice(0, characterIndex);
+
+          if (!deleting && characterIndex === phrase.length) {
+            deleting = true;
+            window.setTimeout(updateRole, 1500);
+            return;
+          }
+          if (deleting && characterIndex === 0) {
+            deleting = false;
+            phraseIndex = (phraseIndex + 1) % rolePhrases.length;
+            window.setTimeout(updateRole, 280);
+            return;
+          }
+          window.setTimeout(updateRole, deleting ? 38 : 85);
+        };
+        window.setTimeout(updateRole, 350);
+      }
+    }
+
+    const sectionLinks = [...document.querySelectorAll('.nav-link[href*="#"]')];
+    const sectionIds = [...new Set(sectionLinks.map((link) => link.hash.slice(1)).filter(Boolean))];
+    const sections = sectionIds.map((id) => document.getElementById(id)).filter(Boolean);
+
+    const setActiveLink = (id) => {
+      sectionLinks.forEach((link) => {
+        const active = link.hash === `#${id}`;
+        link.classList.toggle('is-section-active', active);
+        if (active) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      });
+    };
+
+    if (sections.length >= 2 && document.getElementById('about')) {
+      document.documentElement.classList.add('portfolio-tabs-enabled');
+      const auxiliarySections = {
+        about: ['highlights', 'expertise'],
+        papers: ['published-papers', 'working-papers', 'talks'],
+        projects: ['quant-projects', 'research-projects'],
+      };
+      const auxiliaryPanels = Object.values(auxiliarySections)
+        .flat()
+        .map((id) => document.getElementById(id))
+        .filter(Boolean);
+
+      const showSection = (requestedId, updateHistory = false) => {
+        const id = sectionIds.includes(requestedId) ? requestedId : 'about';
+        sections.forEach((section) => {
+          const active = section.id === id;
+          section.hidden = !active;
+          section.setAttribute('aria-hidden', String(!active));
+        });
+        auxiliaryPanels.forEach((section) => {
+          const active = (auxiliarySections[id] || []).includes(section.id);
+          section.hidden = !active;
+          section.setAttribute('aria-hidden', String(!active));
+        });
+        setActiveLink(id);
+        if (updateHistory) history.pushState(null, '', `#${id}`);
+        window.scrollTo({ top: 0, behavior: 'auto' });
+      };
+
+      sectionLinks.forEach((link) => {
+        if (!sectionIds.includes(link.hash.slice(1))) return;
+        link.addEventListener('click', (event) => {
+          event.preventDefault();
+          showSection(link.hash.slice(1), true);
+          const mobileCheckbox = document.getElementById('nav-toggle');
+          if (mobileCheckbox) mobileCheckbox.checked = false;
+        });
+      });
+
+      window.addEventListener('popstate', () => showSection(location.hash.slice(1)));
+      showSection(location.hash.slice(1));
+    }
+
+    const mobileToggle = document.querySelector('label[for="nav-toggle"]');
+    const mobileCheckbox = document.getElementById('nav-toggle');
+    if (mobileToggle && mobileCheckbox) {
+      mobileToggle.setAttribute('role', 'button');
+      mobileToggle.setAttribute('tabindex', '0');
+      mobileToggle.setAttribute('aria-label', 'Toggle navigation menu');
+      mobileToggle.setAttribute('aria-controls', 'nav-menu');
+      mobileToggle.setAttribute('aria-expanded', String(mobileCheckbox.checked));
+      const syncExpanded = () => mobileToggle.setAttribute('aria-expanded', String(mobileCheckbox.checked));
+      mobileCheckbox.addEventListener('change', syncExpanded);
+      mobileToggle.addEventListener('keydown', (event) => {
+        if (event.key !== 'Enter' && event.key !== ' ') return;
+        event.preventDefault();
+        mobileCheckbox.checked = !mobileCheckbox.checked;
+        mobileCheckbox.dispatchEvent(new Event('change'));
+      });
+    }
+
+    const experienceRoles = new Set([
+      'Software Engineer Intern',
+      'Undergraduate Econometrics Researcher',
+      'Graph Machine Learning Researcher',
+      'Lead Graph Machine Learning Researcher',
+      'Machine Learning and Spatial Researcher',
+      'Computer Vision Researcher and Data Developer',
+      'Software Developer Intern',
+    ]);
+    document.querySelectorAll('#section-resume-experience h3').forEach((heading) => {
+      if (!experienceRoles.has(heading.textContent.trim())) return;
+      const card = heading.closest('.relative.bg-white');
+      if (!card || card.querySelector('.experience-inline-gallery')) return;
+      const gallery = document.createElement('details');
+      gallery.className = 'experience-inline-gallery';
+      gallery.innerHTML = `
+        <summary aria-label="Toggle experience images">
+          <span class="experience-inline-preview">
+            <img src="/media/experience-placeholder.svg" alt="Placeholder for experience images">
+            <span class="experience-inline-fade" aria-hidden="true"></span>
+            <span class="experience-inline-arrow" aria-hidden="true"></span>
+          </span>
+        </summary>
+        <div class="experience-inline-more" aria-label="Additional experience images"></div>`;
+      card.appendChild(gallery);
+    });
+
+    const detailRoute = location.pathname.match(/^\/(projects|publications|events|experience-details)\/[^/]+\/?$/);
+    if (detailRoute) {
+      const destination = {
+        projects: ['/#projects', 'Back to Projects'],
+        publications: ['/#papers', 'Back to Publications'],
+        events: ['/#papers', 'Back to Publications'],
+        'experience-details': ['/experience/', 'Back to Experience'],
+      }[detailRoute[1]];
+      const main = document.querySelector('main');
+      document.querySelectorAll('[id^="share-link-"]').forEach((link) => {
+        const shareGroup = link.closest('section');
+        if (shareGroup) shareGroup.remove();
+        else link.remove();
+      });
+      if (main && !main.querySelector('.detail-back-button')) {
+        const back = document.createElement('a');
+        back.href = destination[0];
+        back.className = 'detail-back-button';
+        back.innerHTML = '<span aria-hidden="true">←</span><span class="detail-back-label">' + destination[1] + '</span>';
+        back.addEventListener('click', (event) => {
+          if (document.referrer && new URL(document.referrer).origin === location.origin && history.length > 1) {
+            event.preventDefault();
+            history.back();
+          }
+        });
+        main.prepend(back);
+      }
+    }
+  })();
+</script>

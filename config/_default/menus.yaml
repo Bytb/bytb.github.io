@@ -1,16 +1,19 @@
 main:
   - name: About
-    url: /
+    url: /#about
     weight: 10
   - name: Publications
     url: /#papers
-    weight: 20
-  - name: Presentations
-    url: /#talks
     weight: 30
+  - name: Hobbies
+    url: /#hobbies
+    weight: 40
+  - name: Projects
+    url: /#projects
+    weight: 50
   - name: Experience
     url: /experience/
-    weight: 40
+    weight: 20
   - name: CV
     url: /uploads/resume.pdf
-    weight: 50
+    weight: 60

@@ -5,6 +5,7 @@ authors:
   - Abel Le
   - caleb
   - Seungbae Kim
+profile: false
 date: "2026-01-01T00:00:00Z"
 publication_types: ["manuscript"]
 publication:
@@ -12,6 +13,7 @@ publication:
 peer_reviewed: false
 summary: "Structural-aware pretraining for robust graph transfer learning."
 tags:
+  - Working Paper
   - Graph Machine Learning
   - Transfer Learning
 featured: false

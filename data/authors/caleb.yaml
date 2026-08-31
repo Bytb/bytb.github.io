@@ -11,19 +11,23 @@ name:
 postnominals: []
 status:
   icon: ""
-role: Computer Science & Econometrics Student | Machine Learning Researcher
+role: Computer Science & Econometrics | Machine Learning Researcher
 bio: |
-  I am an undergraduate at the University of South Florida studying computer science,
-  econometrics and quantitative economics, and geographic information systems. My
-  research spans graph machine learning, causal inference, spatial analysis, computer
-  vision, and synthetic data generation.
+  I am a 2026 Barry Goldwater Scholar, Sigma Xi inductee, and machine learning researcher at
+  the University of South Florida, where I maintain a 4.0 GPA while pursuing dual BS degrees
+  in Computer Science and Econometrics and Quantitative Economics with a minor in Geographic
+  Information Systems. My research sits at the intersection of machine learning, causal
+  inference, and data science for actionable insights. I have
+  first-authored work published at the GRaM Workshop at ICLR 2026 and received the Gulf Coast
+  Undergraduate Research Symposium Award in Economics while collaborating with faculty worldwide across disciplines. 
+
 
 affiliations:
   - name: University of South Florida
     url: https://www.usf.edu/
 
 links:
-  - icon: at-symbol
+  - icon: hero/envelope
     url: mailto:calebfernandes3@gmail.com
     label: Email Caleb Fernandes
   - icon: brands/github
@@ -32,6 +36,9 @@ links:
   - icon: brands/linkedin
     url: https://www.linkedin.com/in/caleb-fernandes
     label: LinkedIn
+  - icon: academicons/google-scholar
+    url: https://scholar.google.com/citations?hl=en&user=Re9Pz7IAAAAJ
+    label: Google Scholar
   - icon: academicons/orcid
     url: https://orcid.org/0009-0005-5493-0873
     label: ORCID
@@ -45,14 +52,14 @@ interests:
 
 education:
   - degree: BS Computer Science
-    institution: University of South Florida, Genshaft Honors College
+    institution: University of South Florida
     end: 2027-05-01
   - degree: BS Econometrics and Quantitative Economics
-    institution: University of South Florida, Genshaft Honors College
+    institution: University of South Florida
     end: 2027-05-01
     summary: "GPA: 4.0"
   - degree: Minor in Geographic Information Systems
-    institution: University of South Florida, Genshaft Honors College
+    institution: University of South Florida
     end: 2027-05-01
 
 experience:
