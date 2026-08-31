@@ -240,10 +240,10 @@
     const detailRoute = location.pathname.match(/^\/(projects|publications|events|experience-details)\/[^/]+\/?$/);
     if (detailRoute) {
       const destination = {
-        projects: ['/#projects', 'Back to Projects'],
-        publications: ['/#papers', 'Back to Publications'],
-        events: ['/#papers', 'Back to Publications'],
-        'experience-details': ['/experience/', 'Back to Experience'],
+        projects: ['/#projects', 'Back'],
+        publications: ['/#papers', 'Back'],
+        events: ['/#papers', 'Back'],
+        'experience-details': ['/experience/', 'Back'],
       }[detailRoute[1]];
       const main = document.querySelector('main');
       document.querySelectorAll('[id^="share-link-"]').forEach((link) => {

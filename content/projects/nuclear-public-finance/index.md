@@ -10,7 +10,7 @@ tags:
 featured: false
 ---
 
-## Project images
+## Select images
 
 <div class="experience-carousel experience-detail-carousel" data-experience-carousel aria-roledescription="carousel">
   <div class="experience-carousel-track">
