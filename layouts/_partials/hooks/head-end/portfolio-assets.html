@@ -2,4 +2,3 @@
   {{- $portfolioStyle := . | minify | fingerprint -}}
   <link rel="stylesheet" href="{{ $portfolioStyle.RelPermalink }}">
 {{- end -}}
-{{ partial "hooks/body-end/portfolio-interactions.html" . }}

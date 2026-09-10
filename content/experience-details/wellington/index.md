@@ -6,6 +6,20 @@ authors: []
 profile: false
 ---
 
+<section class="experience-tools-overview" aria-label="Tools overview">
+  <h2>Tools overview</h2>
+  <ul>
+    <li>Java</li>
+    <li>SQL</li>
+    <li>ReactJS</li>
+    <li>Spring Boot</li>
+    <li>Jira</li>
+    <li>APIs</li>
+    <li>Relational databases</li>
+    <li>Data visualization</li>
+  </ul>
+</section>
+
 ## Select images
 
 <div class="experience-carousel experience-detail-carousel" data-experience-carousel aria-roledescription="carousel">
@@ -24,6 +38,7 @@ profile: false
   <button class="experience-carousel-arrow experience-carousel-next" type="button" aria-label="Next image">›</button>
   <p class="experience-carousel-status" aria-live="polite"></p>
 </div>
+
 
 ## Work completed
 

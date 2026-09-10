@@ -10,6 +10,19 @@ tags:
 featured: false
 ---
 
+<section class="experience-tools-overview" aria-label="Tools overview">
+  <h2>Tools overview</h2>
+  <ul>
+    <li>Python</li>
+    <li>PyTorch</li>
+    <li>scikit-learn</li>
+    <li>Machine learning</li>
+    <li>Parallel programming</li>
+    <li>High performance computing</li>
+    <li>Data visualization</li>
+  </ul>
+</section>
+
 ## Select images
 
 <div class="experience-carousel experience-detail-carousel" data-experience-carousel aria-roledescription="carousel">
@@ -31,6 +44,7 @@ featured: false
   <button class="experience-carousel-arrow experience-carousel-next" type="button" aria-label="Next image">›</button>
   <p class="experience-carousel-status" aria-live="polite"></p>
 </div>
+
 
 ## Project description
 

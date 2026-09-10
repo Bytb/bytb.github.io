@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>CF — Caleb Fernandes</title>
+  <rect width="64" height="64" rx="12" fill="#065a82"/>
+  <g fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="square" stroke-linejoin="round">
+    <path d="M27 20H21C14 20 11 25 11 32s3 12 10 12h6"/>
+    <path d="M39 44V20h14M39 31h11"/>
+  </g>
+</svg>

@@ -10,6 +10,20 @@ tags:
 featured: false
 ---
 
+<section class="experience-tools-overview" aria-label="Tools overview">
+  <h2>Tools overview</h2>
+  <ul>
+    <li>Python</li>
+    <li>LightGBM</li>
+    <li>scikit-learn</li>
+    <li>ArcGIS Pro</li>
+    <li>Geospatial machine learning</li>
+    <li>Graph machine learning</li>
+    <li>Big data</li>
+    <li>Spatial-accessibility modeling</li>
+  </ul>
+</section>
+
 ## Select images
 
 <div class="experience-carousel experience-detail-carousel experience-carousel-landscape" data-experience-carousel aria-roledescription="carousel">
@@ -28,6 +42,7 @@ featured: false
   <button class="experience-carousel-arrow experience-carousel-next" type="button" aria-label="Next image">›</button>
   <p class="experience-carousel-status" aria-live="polite"></p>
 </div>
+
 
 ## Project description
 

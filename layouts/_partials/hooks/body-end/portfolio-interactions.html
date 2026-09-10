@@ -1,5 +1,12 @@
 <script>
   window.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('a[href]').forEach((link) => {
+      const url = new URL(link.getAttribute('href'), document.baseURI);
+      if (!['http:', 'https:'].includes(url.protocol) || url.origin === location.origin) return;
+      link.target = '_blank';
+      link.relList.add('noopener', 'noreferrer');
+    });
+
     document.querySelectorAll('span').forEach((element) => {
       if (!/^\d+\s+min read$/i.test(element.textContent.trim())) return;
       const separator = element.previousElementSibling;
@@ -158,6 +165,52 @@
       });
     }
 
+    const paidExperienceRoles = new Set([
+      'Software Engineer Intern',
+      'Lead Graph Machine Learning Researcher',
+      'Computer Vision Researcher and Data Developer',
+      'Software Developer Intern',
+    ]);
+    document.querySelectorAll('#section-resume-experience h3').forEach((heading) => {
+      if (!paidExperienceRoles.has(heading.textContent.trim())) return;
+      const existingBadges = [...heading.parentElement.querySelectorAll('.experience-paid-tag')];
+      existingBadges.slice(1).forEach((badge) => badge.remove());
+      if (existingBadges.length) return;
+      const badge = document.createElement('span');
+      badge.className = 'experience-paid-tag';
+      badge.textContent = 'Employed';
+      heading.classList.add('experience-title-with-tag');
+      heading.after(badge);
+    });
+
+    const experienceTools = {
+      'Software Engineer Intern': ['Java', 'SQL', 'ReactJS', 'Spring Boot', 'Jira', 'APIs', 'Relational databases', 'Data visualization'],
+      'Undergraduate Econometrics Researcher': ['Python', 'R', 'pandas', 'ArcGIS Pro', 'Causal inference', 'Event study'],
+      'Graph Machine Learning Researcher': ['Python', 'PyTorch', 'scikit-learn', 'Graph machine learning', 'LLMs', 'Synthetic data generation', 'Data visualization'],
+      'Lead Graph Machine Learning Researcher': ['Python', 'PyTorch', 'scikit-learn', 'Machine learning', 'Parallel programming', 'High performance computing', 'Data visualization'],
+      'Machine Learning and Spatial Researcher': ['Python', 'LightGBM', 'scikit-learn', 'ArcGIS Pro', 'Geospatial machine learning', 'Graph machine learning', 'Big data', 'Spatial-accessibility modeling'],
+      'Computer Vision Researcher and Data Developer': ['PyTorch', 'Unreal Engine 5', 'U-Net', 'Computer vision', 'Procedural Content Generation', 'Synthetic data generation'],
+      'Software Developer Intern': ['C#', 'VBA', '.NET', 'ClosedXML', 'OpenXML'],
+    };
+    document.querySelectorAll('#section-resume-experience h3').forEach((heading) => {
+      const tools = experienceTools[heading.textContent.trim()];
+      const card = heading.closest('.relative.bg-white');
+      if (!tools || !card || card.querySelector('.experience-tools-overview')) return;
+      const overview = document.createElement('section');
+      overview.className = 'experience-tools-overview';
+      overview.setAttribute('aria-label', 'Tools overview');
+      const title = document.createElement('h4');
+      title.textContent = 'Tools overview';
+      const list = document.createElement('ul');
+      tools.forEach((tool) => {
+        const item = document.createElement('li');
+        item.textContent = tool;
+        list.appendChild(item);
+      });
+      overview.append(title, list);
+      card.insertBefore(overview, card.querySelector('.experience-project-link'));
+    });
+
     const experienceProjectLinks = {
       'Software Engineer Intern': {
         url: '/experience-details/wellington/',
@@ -198,20 +251,163 @@
       card.appendChild(link);
     });
 
-    document.querySelectorAll('#quant-projects [role="article"], #research-projects [role="article"]').forEach((card) => {
+    const experienceSummaries = {
+      {{ range site.Data.authors.caleb.experience }}
+      {{ .role }}: {{ .summary | markdownify }},
+      {{ end }}
+    };
+    const projectRoles = {
+      'nuclear-public-finance': 'Undergraduate Econometrics Researcher',
+      'ehr-walk': 'Graph Machine Learning Researcher',
+      'recycle-net': 'Lead Graph Machine Learning Researcher',
+      'ev-charging-infrastructure': 'Machine Learning and Spatial Researcher',
+    };
+    const projectCards = [...document.querySelectorAll('#quant-projects [role="article"], #research-projects [role="article"]')];
+    projectCards.forEach((card) => {
       card.classList.add('project-experience-card');
       const media = card.firstElementChild;
       if (media?.classList.contains('aspect-[16/9]')) media.remove();
       const heading = card.querySelector('h3');
       const detailLink = [...card.querySelectorAll('a')].find((link) => link.textContent.trim() === 'Read more');
       if (!heading || !detailLink) return;
-      const oldWrapper = detailLink.parentElement;
+      heading.textContent = heading.textContent.trim();
+      const body = heading.parentElement;
+      const slug = new URL(detailLink.href).pathname.split('/').filter(Boolean).pop();
+      card.dataset.project = slug;
+      const role = projectRoles[slug];
+      const tools = experienceTools[role] || (slug === 'active-portfolio-management' ? ['Python', 'NumPy', 'pandas', 'SciPy', 'statsmodels', 'Matplotlib', 'yfinance', 'Jupyter Notebook', 'Quantitative finance', 'Factor modeling', 'Regression', 'Bayesian shrinkage', 'Time-series analysis', 'Data visualization'] : slug === 'monte-carlo-portfolio-optimization' ? ['Python', 'NumPy', 'pandas', 'SciPy', 'Matplotlib', 'yfinance', 'Quantitative finance', 'Monte Carlo simulation', 'Portfolio optimization', 'Conditional value at risk', 'Cholesky decomposition', 'Data visualization'] : slug === 'darwin' ? ['JavaScript', 'React', 'Schwab integration', 'APIs', 'Quantitative finance', 'Portfolio rebalancing', 'RSI-based allocation', 'Data visualization'] : []);
+      card.dataset.skills = JSON.stringify(tools);
+      const summary = body.querySelector('p');
+      const description = document.createElement('div');
+      description.className = 'project-experience-description';
+      if (role) description.innerHTML = experienceSummaries[role];
+      else if (slug === 'active-portfolio-management') {
+        const list = document.createElement('ul');
+        [
+          'Motivated by Active Portfolio Management by Richard Grinold and Ronald Kahn, this project practices the book’s techniques using momentum and price-based value signals from 2010–2025, with SPY as the benchmark.',
+          'Evaluated residual volatility, information coefficients, and long–short factor portfolios within the Grinold and Kahn forecasting framework.',
+          'Found a momentum–value factor correlation of approximately −0.435 (regression R² ≈ 0.189); extending the analysis to signal persistence and information decay.',
+        ].forEach((text) => { const item = document.createElement('li'); item.textContent = text; list.appendChild(item); });
+        description.appendChild(list);
+      } else if (slug === 'monte-carlo-portfolio-optimization') {
+        const list = document.createElement('ul');
+        [
+          'Simulated correlated portfolio paths for AMZN, CEG, SPYG, and VTI using historical mean returns, covariance estimates, and Cholesky decomposition.',
+          'Implemented vectorized simulations and constrained SciPy SLSQP optimization with CVaR-based and Sharpe-ratio objectives, using fixed scenarios to compare allocations.',
+          'The illustrated $7,000 portfolio simulation produced mean terminal wealth of $11,250.36 and a 5th-percentile value of $7,857.03.',
+        ].forEach((text) => { const item = document.createElement('li'); item.textContent = text; list.appendChild(item); });
+        description.appendChild(list);
+      } else if (slug === 'darwin') {
+        const list = document.createElement('ul');
+        [
+          'Built a JavaScript and React dashboard integrating Schwab account data and real market data through APIs.',
+          'Calculates contribution-based purchases and sale amounts for rebalancing, combining target holding percentages with adjustable RSI influence.',
+          'Visualizes current and proposed allocations, holdings, performance, and market indicators with configurable allocation rules and saved setups.',
+        ].forEach((text) => { const item = document.createElement('li'); item.textContent = text; list.appendChild(item); });
+        description.appendChild(list);
+      } else description.textContent = summary?.textContent.trim() || '';
+      body.replaceChildren(heading, description);
+      if (tools.length) {
+        const overview = document.createElement('section');
+        overview.className = 'experience-tools-overview';
+        overview.setAttribute('aria-label', 'Tools overview');
+        const title = document.createElement('h4');
+        title.textContent = 'Tools overview';
+        const list = document.createElement('ul');
+        tools.forEach((tool) => {
+          const item = document.createElement('li');
+          item.textContent = tool;
+          list.appendChild(item);
+        });
+        overview.append(title, list);
+        body.appendChild(overview);
+      }
       detailLink.remove();
-      oldWrapper?.remove();
       detailLink.className = 'experience-project-link project-card-explore-link';
       detailLink.innerHTML = `<span>Explore ${heading.textContent.trim()}</span><span aria-hidden="true">→</span>`;
       card.appendChild(detailLink);
     });
+
+    const projectOrder = {
+      'research-projects': ['recycle-net', 'nuclear-public-finance', 'ev-charging-infrastructure', 'ehr-walk'],
+      'quant-projects': ['active-portfolio-management', 'monte-carlo-portfolio-optimization', 'darwin'],
+    };
+    Object.entries(projectOrder).forEach(([id, order]) => {
+      const cards = projectCards.filter((card) => card.closest(`#${id}`));
+      cards.sort((a, b) => order.indexOf(a.dataset.project) - order.indexOf(b.dataset.project));
+      cards.forEach((card) => card.parentElement.appendChild(card));
+    });
+
+    const projectIntro = document.querySelector('#projects .prose');
+    if (projectIntro && projectCards.length) {
+      const search = document.createElement('div');
+      search.className = 'project-skill-search';
+      search.innerHTML = '<h2>Projects</h2><h3>Filter by technical skills</h3><p>Select options to find projects matching all your choices.</p><div class="project-filter-groups"></div><button type="button" class="project-filter-clear">Clear filters</button><p id="project-filter-status" role="status" aria-live="polite"></p>';
+      projectIntro.after(search);
+      projectIntro.hidden = true;
+      projectIntro.parentElement.querySelectorAll(':scope > .mb-6').forEach((heading) => { heading.hidden = true; });
+      const groups = {
+        Languages: ['Python', 'R', 'JavaScript'],
+        'Packages & platforms': ['PyTorch', 'scikit-learn', 'pandas', 'NumPy', 'SciPy', 'statsmodels', 'Matplotlib', 'yfinance', 'Jupyter Notebook', 'ArcGIS Pro', 'React', 'Schwab integration'],
+        'Skills & methods': ['Quantitative finance', 'Machine learning (graph, geospatial, LLMs)', 'Causal inference (event study, regression)', 'Synthetic data generation', 'Data (big data, visualization, processing)', 'High performance computing (parallel programming)', 'Spatial modeling'],
+      };
+      const skillAliases = {
+        'Machine learning (graph, geospatial, LLMs)': ['Machine learning', 'Graph machine learning', 'Geospatial machine learning', 'LLMs'],
+        'Causal inference (event study, regression)': ['Causal inference', 'Event study', 'Regression'],
+        'Data (big data, visualization, processing)': ['Big data', 'Data visualization', 'Data processing'],
+        'High performance computing (parallel programming)': ['High performance computing', 'Parallel programming'],
+        'Spatial modeling': ['Spatial-accessibility modeling', 'Spatial modeling'],
+      };
+      Object.entries(groups).forEach(([name, options]) => {
+        const dropdown = document.createElement('details');
+        const summary = document.createElement('summary');
+        summary.textContent = name;
+        summary.dataset.label = name;
+        dropdown.appendChild(summary);
+        const fieldset = document.createElement('fieldset');
+        const legend = document.createElement('legend');
+        legend.textContent = name;
+        fieldset.appendChild(legend);
+        options.forEach((option) => {
+          const label = document.createElement('label');
+          const checkbox = document.createElement('input');
+          checkbox.type = 'checkbox';
+          checkbox.value = option;
+          label.append(checkbox, document.createTextNode(option));
+          fieldset.appendChild(label);
+        });
+        dropdown.appendChild(fieldset);
+        search.querySelector('.project-filter-groups').appendChild(dropdown);
+      });
+      const status = search.querySelector('[role="status"]');
+      const filterProjects = () => {
+        const terms = [...search.querySelectorAll('input:checked')].map((input) => input.value);
+        let visible = 0;
+        projectCards.forEach((card) => {
+          const skills = JSON.parse(card.dataset.skills);
+          if (card.closest('#quant-projects')) skills.push('Quantitative finance');
+          const matches = terms.every((term) => (skillAliases[term] || [term]).some((skill) => skills.includes(skill)));
+          card.hidden = !matches;
+          if (matches) visible++;
+        });
+        status.textContent = visible ? `${visible} of ${projectCards.length} projects shown` : 'No projects match these choices. Remove an option or clear the filters.';
+        search.querySelectorAll('details').forEach((dropdown) => {
+          const count = dropdown.querySelectorAll('input:checked').length;
+          const summary = dropdown.querySelector('summary');
+          summary.textContent = summary.dataset.label + (count ? ` (${count})` : '');
+        });
+        ['quant-projects', 'research-projects'].forEach((id) => {
+          const section = document.getElementById(id);
+          section.classList.toggle('project-category-empty', ![...section.querySelectorAll('[role="article"]')].some((card) => !card.hidden));
+        });
+      };
+      search.addEventListener('change', filterProjects);
+      search.querySelector('button').addEventListener('click', () => {
+        search.querySelectorAll('input').forEach((input) => { input.checked = false; });
+        filterProjects();
+      });
+      filterProjects();
+    }
 
     document.querySelectorAll('[data-experience-carousel]').forEach((carousel) => {
       const track = carousel.querySelector('.experience-carousel-track');
